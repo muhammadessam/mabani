@@ -60,7 +60,7 @@ class RoleController extends Controller
      */
     public function edit(Role $role)
     {
-        //
+        return view('roles.edit', compact('role'));
     }
 
     /**
@@ -72,7 +72,12 @@ class RoleController extends Controller
      */
     public function update(Request $request, Role $role)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+        ]);
+        $role->update($request->all());
+        $this->actionDone();
+        return redirect()->route('admin.roles.index');
     }
 
     /**
@@ -83,6 +88,8 @@ class RoleController extends Controller
      */
     public function destroy(Role $role)
     {
-        //
+        $role->delete();
+        $this->actionDone();
+        return redirect()->back();
     }
 }
