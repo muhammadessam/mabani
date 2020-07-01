@@ -14,13 +14,13 @@
             <nav class="mt-2">
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                     <li class="nav-item">
-                        <a href="" class="nav-link">
+                        <a href="{{route('admin.home')}}" class="nav-link">
                             <i class="nav-icon fa fa-home"></i>
                             <p>الرئيسية</p>
                         </a>
                     </li>
-                    <li class="nav-item has-treeview">
-                        <a href="#" class="nav-link">
+                    <li class="nav-item has-treeview {{request()->routeIs('admin.users.*')||request()->routeIs('admin.roles.*') || request()->routeIs('admin.permissions.*') ? 'menu-open' : ''}}">
+                        <a href="#" class="nav-link ">
                             <i class="nav-icon fa fa-tree"></i>
                             <p>
                                 الصلاحيات والمشرفين
@@ -29,19 +29,19 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="" class="nav-link">
+                                <a href="{{route('admin.users.index')}}" class="nav-link {{request()->routeIs('admin.users.*') ? 'active' : ''}}">
                                     <i class="fa fa-circle-o nav-icon"></i>
                                     <p>المشرفين</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{route('admin.roles.index')}}" class="nav-link">
+                                <a href="{{route('admin.roles.index')}}" class="nav-link {{request()->routeIs('admin.roles.*') ? 'active' : ''}}">
                                     <i class="fa fa-circle-o nav-icon"></i>
                                     <p>الادوار</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{route('admin.permissions.index')}}" class="nav-link">
+                                <a href="{{route('admin.permissions.index')}}" class="nav-link {{request()->routeIs('admin.permissions.*') ? 'active' : ''}}">
                                     <i class="fa fa-circle-o nav-icon"></i>
                                     <p>الاذونات</p>
                                 </a>

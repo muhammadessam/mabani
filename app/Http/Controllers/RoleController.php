@@ -49,7 +49,7 @@ class RoleController extends Controller
      */
     public function show(Role $role)
     {
-        //
+        return view('roles.show', compact('role'));
     }
 
     /**
@@ -91,5 +91,16 @@ class RoleController extends Controller
         $role->delete();
         $this->actionDone();
         return redirect()->back();
+    }
+
+    public function addPermissions(Request $request, Role $role)
+    {
+        $request->validate([
+            'permissions' => 'required',
+        ]);
+        $role->syncPermissions($request['permissions']);
+        $this->actionDone();
+
+        return redirect()->route('admin.roles.show', $role);
     }
 }

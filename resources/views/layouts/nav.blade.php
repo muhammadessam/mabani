@@ -11,7 +11,7 @@
             </a>
             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-left">
                 <a href="#" class="dropdown-item">
-{{--                    <i class="fa fa-envelope ml-2"></i>{{auth()->user()->name}}<span class="float-left text-muted text-sm"></span>--}}
+                    <i class="fa fa-user-plus ml-2"></i>{{auth()->user()->name}}<span class="float-left text-muted text-sm"></span>
                 </a>
 
                 <div class="dropdown-divider"></div>

@@ -31,7 +31,8 @@
                                     <tr>
                                         <td>{{$item['name']}}</td>
                                         <td class="d-flex">
-                                            <a class="btn btn-flat btn-primary ml-1" href="{{route('admin.roles.edit', $item)}}"><i class="fa fa-edit"></i></a>
+                                            <a class="btn btn-flat btn-info ml-1" href="{{route('admin.roles.show', $item)}}"><i class="fa fa-eye"></i></a>
+                                            <a class="btn btn-flat btn-warning ml-1" href="{{route('admin.roles.edit', $item)}}"><i class="fa fa-edit"></i></a>
                                             <form action="{{route('admin.roles.destroy',$item)}}" method="post" onsubmit="return confirm('هل انت متاكد ؟')">
                                                 @csrf
                                                 @method('DELETE')
