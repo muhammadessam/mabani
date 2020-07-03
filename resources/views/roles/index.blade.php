@@ -19,7 +19,7 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <table class="table table-striped">
+                            <table id="roles" class="table table-striped">
                                 <thead>
                                 <tr>
                                     <th>الاسم</th>
@@ -49,4 +49,7 @@
             </div>
         </div>
     </div>
+@endsection
+@section('javascript')
+    <x-datatable id="roles"></x-datatable>
 @endsection
