@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -36,9 +37,9 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required',
-            'email' => 'required|email',
-            'password' => 'required',
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
         User::create($request->all());
         $this->actionDone();
@@ -53,7 +54,7 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        //
+        return view('users.show', compact('user'));
     }
 
     /**
@@ -83,7 +84,7 @@ class UserController extends Controller
         $user->update([
             'name' => $request['name'],
             'email' => $request['email'],
-            'password' => $request['password'] ?? $user['password']
+            'password' => $request['password'] ? Hash::make($request['password']) : $user['password']
         ]);
         $this->actionDone();
         return redirect()->route('admin.users.index');
@@ -98,6 +99,14 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         $user->delete();
+        $this->actionDone();
+        return redirect()->back();
+    }
+
+    public function syncRoles(Request $request, User $user)
+    {
+
+        $user->syncRoles($request['roles'] ? $request['roles'] : []);
         $this->actionDone();
         return redirect()->back();
     }

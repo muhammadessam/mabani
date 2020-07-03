@@ -46,9 +46,15 @@
             justify-content: center;
             align-items: center;
         }
-        input{
+
+        input[type='submit']:focus {
+            outline: none;
+            border: none;
+        }
+
+        input {
             margin: 10px;
-            background-color:#DB906E;
+            background-color: #DB906E;
             border: none;
             height: 30px;
             width: 100%;
@@ -56,11 +62,13 @@
             padding: 3px;
             padding-inline: 1px;
         }
-        input:focus{
+
+        input:focus {
             border: none;
             outline: 0;
         }
-        ::placeholder{
+
+        ::placeholder {
             color: white;
         }
     </style>
