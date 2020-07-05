@@ -15,6 +15,7 @@
                             <table class="table table-striped text-center" id="buildings">
                                 <thead>
                                 <tr>
+                                    <th>رقم المبني</th>
                                     <th>المحافظة</th>
                                     <th>الولاية</th>
                                     <th>مربع</th>
@@ -26,6 +27,7 @@
                                 <tbody>
                                 @foreach(\App\Building::all() as $item)
                                     <tr>
+                                        <td>{{$item['id']}}</td>
                                         <td>{{$item->gov['ar_gov']}}</td>
                                         <td>{{$item->state['ar_state']}}</td>
                                         <td>{{$item['block_number']}}</td>

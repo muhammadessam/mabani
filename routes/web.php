@@ -15,13 +15,10 @@ Route::middleware('auth')->prefix('admin')->group(function () {
     Route::resource('users', 'UserController');
     Route::post('add-role-permissions/{role}', 'RoleController@addPermissions')->name('store.role.permissions');
     Route::post('sync-user-role/{user}', 'UserController@syncRoles')->name('sync.user.roles');
-
-
-    // Gov states
-    //Route::get('govs', 'GovController@index')->name('govs.index');
-
-
+    //owners
     Route::resource('owners', 'OwnerController');
+    //building
     Route::resource('buildings', 'BuildingController');
-
+    Route::post('{building}/add-owner', 'BuildingController@addOwner')->name('building.attach.owners');
+    Route::post('{building}/{owner}/remove', 'BuildingController@removeOwner')->name('buildings.owners.detach');
 });

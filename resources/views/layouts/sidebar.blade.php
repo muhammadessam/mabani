@@ -52,6 +52,7 @@
                         <a href="{{route('buildings.index')}}" class="nav-link {{request()->routeIs('buildings.*') ? 'active' : ''}}">
                             <i class="nav-icon fa fa-building"></i>
                             <p>المباني</p>
+                            <span class="badge badge-info float-left">{{\App\Building::all()->count()}}</span>
                         </a>
                     </li>
 
@@ -77,6 +78,7 @@
                         <a href="{{route('owners.index')}}" class="nav-link {{request()->routeIs('owners.*') ?'active':''}}">
                             <i class="nav-icon fa fa-user"></i>
                             <p>المالكون</p>
+                            <span class="badge badge-success float-left">{{\App\Owner::all()->count()}}</span>
                         </a>
                     </li>
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Building;
+use App\Owner;
 use Illuminate\Http\Request;
 
 class BuildingController extends Controller
@@ -41,10 +42,10 @@ class BuildingController extends Controller
             'block_number' => 'required',
             'plot_number' => 'required',
         ], [], [
-            'gov_id'=>'المحافظة',
-            'state_id'=>'الولاية',
-            'block_number'=>'رقم المربع',
-            'plot_number'=>'رقم القطعة',
+            'gov_id' => 'المحافظة',
+            'state_id' => 'الولاية',
+            'block_number' => 'رقم المربع',
+            'plot_number' => 'رقم القطعة',
         ]);
         if ($request->hasFile('img_temp'))
             $request['img'] = $this->storeFile('Buildings', 'img_temp');
@@ -61,7 +62,7 @@ class BuildingController extends Controller
      */
     public function show(Building $building)
     {
-        //
+        return view('buildings.show', compact('building'));
     }
 
     /**
@@ -90,10 +91,10 @@ class BuildingController extends Controller
             'block_number' => 'required',
             'plot_number' => 'required',
         ], [], [
-            'gov_id'=>'المحافظة',
-            'state_id'=>'الولاية',
-            'block_number'=>'رقم المربع',
-            'plot_number'=>'رقم القطعة',
+            'gov_id' => 'المحافظة',
+            'state_id' => 'الولاية',
+            'block_number' => 'رقم المربع',
+            'plot_number' => 'رقم القطعة',
         ]);
         if ($request->hasFile('img_temp'))
             $request['img'] = $this->storeFile('Buildings', 'img_temp');
@@ -111,6 +112,26 @@ class BuildingController extends Controller
     public function destroy(Building $building)
     {
         $building->delete();
+        $this->actionDone();
+        return redirect()->back();
+    }
+
+    public function addOwner(Request $request, Building $building)
+    {
+        $request->validate([
+            'owner_id' => 'required',
+            'percentage' => 'required',
+        ]);
+        $building->owners()->attach([
+            $request['owner_id'] => ['percentage' => $request['percentage']]
+        ]);
+        $this->actionDone();
+        return redirect()->back();
+    }
+
+    public function removeOwner(Request $request, Building $building, Owner $owner)
+    {
+        $building->owners()->wherePivot('percentage', $request['percentage'])->detach($owner);
         $this->actionDone();
         return redirect()->back();
     }

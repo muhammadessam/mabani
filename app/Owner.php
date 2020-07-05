@@ -13,4 +13,9 @@ class Owner extends Model
     {
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
+
+    public function buildings()
+    {
+        return $this->belongsToMany(Building::class, 'buildings_owners', 'owner_id', 'building_id')->withPivot('percentage');
+    }
 }
