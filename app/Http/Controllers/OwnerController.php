@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Owner;
 use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 
-class UserController extends Controller
+class OwnerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('users.index');
+        return view('owners.index');
     }
 
     /**
@@ -25,7 +25,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('users.create');
+        return view('owners.create');
     }
 
     /**
@@ -41,73 +41,55 @@ class UserController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
-        $request['password'] = Hash::make($request['password']);
-        User::create($request->all());
+        $user = User::create($request->all());
+        $user->owner()->create();
         $this->actionDone();
-        return redirect()->route('admin.users.index');
+        return  redirect()->route('owners.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param \App\User $user
+     * @param \App\Owner $owner
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function show(Owner $owner)
     {
-        return view('users.show', compact('user'));
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param \App\User $user
+     * @param \App\Owner $owner
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit(Owner $owner)
     {
-        return view('users.edit', compact('user'));
+        return view('owners.edit', compact('owner'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param \Illuminate\Http\Request $request
-     * @param \App\User $user
+     * @param \App\Owner $owner
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, Owner $owner)
     {
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required',
-        ]);
-        $user->update([
-            'name' => $request['name'],
-            'email' => $request['email'],
-            'password' => $request['password'] ? Hash::make($request['password']) : $user['password']
-        ]);
-        $this->actionDone();
-        return redirect()->route('admin.users.index');
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param \App\User $user
+     * @param \App\Owner $owner
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy(Owner $owner)
     {
-        $user->delete();
-        $this->actionDone();
-        return redirect()->back();
-    }
-
-    public function syncRoles(Request $request, User $user)
-    {
-
-        $user->syncRoles($request['roles'] ? $request['roles'] : []);
+        $owner->user()->delete();
         $this->actionDone();
         return redirect()->back();
     }

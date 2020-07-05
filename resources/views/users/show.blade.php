@@ -7,7 +7,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <a class="btn btn-flat btn-success" href="{{route('admin.users.index')}}"><i class="fa fa-list"></i></a>
+                            <a class="btn btn-flat btn-success" href="{{route('users.index')}}"><i class="fa fa-list"></i></a>
                         </div>
                         <div class="card-body">
                             <div class="row">
@@ -22,7 +22,7 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <form action="{{route('admin.sync.user.roles', $user)}}" method="post">
+                                <form action="{{route('sync.user.roles', $user)}}" method="post">
                                     @csrf
                                     @foreach(\App\Role::all() as $item)
                                         <div class="col">

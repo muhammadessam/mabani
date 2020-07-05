@@ -6,7 +6,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <form class="form-inline" action="{{route('admin.permissions.update', $permission)}}" method="post">
+                            <form class="form-inline" action="{{route('permissions.update', $permission)}}" method="post">
                                 @csrf
                                 @method('PUT')
                                 <div class="form-group ml-1">

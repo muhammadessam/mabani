@@ -1,5 +1,5 @@
 @extends('layouts.layout')
-@section('title', 'تعديل')
+@section('title', 'اضافة  مالك جديد')
 @section('content')
     <div class="content">
         <div class="container-fluid">
@@ -7,21 +7,30 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <a class="btn btn-flat btn-success" href="{{route('users.index')}}"><i class="fa fa-list"></i></a>
+                            <a class="btn btn-flat btn-success" href="{{route('owners.index')}}"><i class="fa fa-list"></i></a>
                         </div>
                         <div class="card-body">
-                            <form action="{{route('users.update', $user)}}" method="post">
+                            <form action="{{route('owners.store')}}" method="post">
                                 @csrf
-                                @method('PUT')
                                 <div class="form-group">
                                     <label for="name">الاسم</label>
-                                    <input type="text" name="name" id="name" class="form-control" value="{{$user['name']}}">
+                                    <input type="text" name="name" id="name" class="form-control">
                                     <x-error name="name"></x-error>
                                 </div>
                                 <div class="form-group">
+                                    <label for="phone">الهاتف</label>
+                                    <input type="tel" name="phone" id="email" class="form-control">
+                                    <x-error name="phone"></x-error>
+                                </div>
+                                <div class="form-group">
                                     <label for="email">الايميل</label>
-                                    <input type="email" name="email" id="email" class="form-control" value="{{$user['email']}}">
+                                    <input type="email" name="email" id="phone" class="form-control">
                                     <x-error name="email"></x-error>
+                                </div>
+                                <div class="form-group">
+                                    <label for="nationality">الجنسية</label>
+                                    <input type="nationality" name="nationality" id="nationality" class="form-control">
+                                    <x-error name="nationality"></x-error>
                                 </div>
                                 <div class="form-group">
                                     <label for="password">كلمة المرور</label>
@@ -33,7 +42,7 @@
                                     <input type="password" name="password_confirmation" id="password_confirmation" class="form-control">
                                     <x-error name="password_confirmation"></x-error>
                                 </div>
-                                <button type="submit" class="btn btn-flat btn-success"><i class="fa fa-save"></i>  حفظ</button>
+                                <button type="submit" class="btn btn-flat btn-success"><i class="fa fa-save"></i> حفظ</button>
                             </form>
 
                         </div>

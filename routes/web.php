@@ -6,7 +6,7 @@ Auth::routes();
 Route::get('/', function () {
     return redirect()->route('admin.home');
 });
-Route::middleware('auth')->name('admin.')->prefix('admin')->group(function () {
+Route::middleware('auth')->prefix('admin')->group(function () {
     Route::get('/', 'HomeController@index')->name('home');
 
     // roles users and permissions

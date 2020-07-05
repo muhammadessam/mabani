@@ -7,10 +7,10 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <a class="btn btn-flat btn-success" href="{{route('admin.users.index')}}"><i class="fa fa-list"></i></a>
+                            <a class="btn btn-flat btn-success" href="{{route('users.index')}}"><i class="fa fa-list"></i></a>
                         </div>
                         <div class="card-body">
-                            <form action="{{route('admin.users.store')}}" method="post">
+                            <form action="{{route('users.store')}}" method="post">
                                 @csrf
                                 <div class="form-group">
                                     <label for="name">الاسم</label>
