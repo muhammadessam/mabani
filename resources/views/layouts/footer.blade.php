@@ -1,4 +1,4 @@
-
+<script src="{{asset('js/app.js')}}"></script>
 <!-- jQuery -->
 <script src="{{asset('plugins/jquery/jquery.min.js')}}"></script>
 <!-- jQuery UI 1.11.4 -->

@@ -15,4 +15,11 @@ class Controller extends BaseController
     {
         return toast('تم', 'success')->position('bottom-start');
     }
+
+    public function storeFile($folderName, $requestName)
+    {
+        $fileName = time() . request()->file($requestName)->getClientOriginalName();
+        request()->file($requestName)->move("$folderName/", $fileName);
+        return "$folderName/" . $fileName;
+    }
 }

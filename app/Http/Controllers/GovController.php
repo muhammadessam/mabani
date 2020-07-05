@@ -7,8 +7,8 @@ use Illuminate\Http\Request;
 
 class GovController extends Controller
 {
-    public function states(Request $request, Gov $gov)
+    public function index(Request $request)
     {
-        return $gov->states;
+        return Gov::all();
     }
 }

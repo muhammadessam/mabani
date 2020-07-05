@@ -9,7 +9,7 @@
     @include('layouts.sidebar')
 
 
-    <div class="content-wrapper">
+    <div class="content-wrapper" id="app">
         <div class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">

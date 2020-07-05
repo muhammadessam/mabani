@@ -19,7 +19,7 @@ class CreateBuildingsTable extends Migration
             $table->unsignedBigInteger('state_id');
             $table->string('block_number');
             $table->string('plot_number');
-            $table->text('img');
+            $table->text('img')->nullable()->default(null);
             $table->timestamps();
         });
     }

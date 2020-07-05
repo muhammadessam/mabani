@@ -30,8 +30,9 @@
                                         <td>{{$item->user['phone']}}</td>
                                         <td>{{$item->user['nationality']}}</td>
                                         <td class="d-flex">
+                                            <a class="btn btn-flat btn-info ml-2" href="{{route('owners.show', $item)}}"><i class="fa fa-eye"></i></a>
                                             <a class="btn btn-flat btn-warning ml-2" href="{{route('owners.edit', $item)}}"><i class="fa fa-edit"></i></a>
-                                            <form action="{{route('owners.destroy', $item)}}" method="post">
+                                            <form action="{{route('owners.destroy', $item)}}" method="post" onsubmit="return confirm('هل انت متاكد ؟')">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-flat btn-danger"><i class="fa fa-trash"></i></button>

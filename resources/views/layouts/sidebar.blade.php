@@ -49,7 +49,7 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a href="" class="nav-link">
+                        <a href="{{route('buildings.index')}}" class="nav-link {{request()->routeIs('buildings.*') ? 'active' : ''}}">
                             <i class="nav-icon fa fa-building"></i>
                             <p>المباني</p>
                         </a>
@@ -74,7 +74,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{route('owners.index')}}" class="nav-link {{request()->routeIs('owners.*')}}">
+                        <a href="{{route('owners.index')}}" class="nav-link {{request()->routeIs('owners.*') ?'active':''}}">
                             <i class="nav-icon fa fa-user"></i>
                             <p>المالكون</p>
                         </a>

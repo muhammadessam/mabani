@@ -14,22 +14,22 @@
                                 @csrf
                                 <div class="form-group">
                                     <label for="name">الاسم</label>
-                                    <input type="text" name="name" id="name" class="form-control">
+                                    <input type="text" name="name" id="name" class="form-control" value="{{old('name')}}">
                                     <x-error name="name"></x-error>
                                 </div>
                                 <div class="form-group">
                                     <label for="phone">الهاتف</label>
-                                    <input type="tel" name="phone" id="email" class="form-control">
+                                    <input type="tel" name="phone" id="email" class="form-control" value="{{old('phone')}}">
                                     <x-error name="phone"></x-error>
                                 </div>
                                 <div class="form-group">
                                     <label for="email">الايميل</label>
-                                    <input type="email" name="email" id="phone" class="form-control">
+                                    <input type="email" name="email" id="phone" class="form-control" value="{{old('email')}}">
                                     <x-error name="email"></x-error>
                                 </div>
                                 <div class="form-group">
                                     <label for="nationality">الجنسية</label>
-                                    <input type="nationality" name="nationality" id="nationality" class="form-control">
+                                    <input type="nationality" name="nationality" id="nationality" class="form-control" value="{{old('nationality')}}">
                                     <x-error name="nationality"></x-error>
                                 </div>
                                 <div class="form-group">

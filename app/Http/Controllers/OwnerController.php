@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Owner;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rule;
 
 class OwnerController extends Controller
 {
@@ -40,11 +42,16 @@ class OwnerController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ], [], [
+            'name' => 'الاسم',
+            'email' => 'البريد',
+            'password' => 'كلمة المرور',
         ]);
+        $request['password'] = Hash::make($request['password']);
         $user = User::create($request->all());
         $user->owner()->create();
         $this->actionDone();
-        return  redirect()->route('owners.index');
+        return redirect()->route('owners.index');
     }
 
     /**
@@ -55,7 +62,7 @@ class OwnerController extends Controller
      */
     public function show(Owner $owner)
     {
-        //
+        return view('owners.show', compact('owner'));
     }
 
     /**
@@ -78,7 +85,17 @@ class OwnerController extends Controller
      */
     public function update(Request $request, Owner $owner)
     {
-        //
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore($owner->user)],
+        ], [], [
+            'name' => 'الاسم',
+            'email' => 'البريد',
+        ]);
+        $request['password'] = $request['password'] ? Hash::make($request['password']) : $owner->user['password'];
+        $owner->user->update($request->all());
+        $this->actionDone();
+        return redirect()->route('owners.index');
     }
 
     /**

@@ -18,7 +18,7 @@ Route::middleware('auth')->prefix('admin')->group(function () {
 
 
     // Gov states
-    Route::get('{gov}/stats', 'GovController@states')->name('gov.states');
+    //Route::get('govs', 'GovController@index')->name('govs.index');
 
 
     Route::resource('owners', 'OwnerController');
