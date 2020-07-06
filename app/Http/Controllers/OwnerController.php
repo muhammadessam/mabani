@@ -48,6 +48,7 @@ class OwnerController extends Controller
             'password' => 'كلمة المرور',
         ]);
         $request['password'] = Hash::make($request['password']);
+        $request['type']='Users';
         $user = User::create($request->all());
         $user->owner()->create();
         $this->actionDone();

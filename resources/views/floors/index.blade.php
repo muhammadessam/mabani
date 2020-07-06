@@ -31,7 +31,7 @@
                                     <tr>
                                         <td>{{$item['floor']}}</td>
                                         <td class="d-flex">
-=                                            <a class="btn btn-flat btn-warning ml-1" href="{{route('floors.edit', $item)}}"><i class="fa fa-edit"></i></a>
+                                            <a class="btn btn-flat btn-warning ml-1" href="{{route('floors.edit', $item)}}"><i class="fa fa-edit"></i></a>
                                             <form action="{{route('floors.destroy',$item)}}" method="post" onsubmit="return confirm('هل انت متاكد ؟')">
                                                 @csrf
                                                 @method('DELETE')
