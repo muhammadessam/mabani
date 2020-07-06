@@ -68,12 +68,31 @@
                         </a>
                     </li>
 
-                    <li class="nav-item">
-                        <a href="" class="nav-link">
+                    <li class="nav-item has-treeview {{request()->routeIs('units.*') || request()->routeIs('unit-types.*') ? 'menu-open' : ''}}">
+                        <a href="#" class="nav-link ">
                             <i class="nav-icon fa fa-cubes"></i>
-                            <p>الوحدات</p>
+                            <p>
+                                الوحدات
+                                <i class="fa fa-angle-left right"></i>
+                            </p>
                         </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{route('unit-types.index')}}" class="nav-link {{request()->routeIs('unit-types.*') ? 'active' : ''}}">
+                                    <i class="fa fa-circle-o nav-icon"></i>
+                                    <p>الانواع</p>
+                                    <span class="badge badge-success float-left">{{\App\UnitType::all()->count()}}</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="" class="nav-link {{request()->routeIs('roles.*') ? 'active' : ''}}">
+                                    <i class="fa fa-circle-o nav-icon"></i>
+                                    <p>الوحدات</p>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
+
                     <li class="nav-item">
                         <a href="{{route('owners.index')}}" class="nav-link {{request()->routeIs('owners.*') ?'active':''}}">
                             <i class="nav-icon fa fa-user"></i>
@@ -105,7 +124,7 @@
 
 
                     <li class="nav-item">
-                        <a href="" class="nav-link">
+                        <a href="{{route('settings.index')}}" class="nav-link {{request()->routeIs('settings.*') ? 'active':''}}">
                             <i class="nav-icon fa fa-gear"></i>
                             <p>الاعدادات</p>
                         </a>

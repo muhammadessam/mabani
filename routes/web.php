@@ -27,4 +27,7 @@ Route::middleware('auth')->prefix('admin')->group(function () {
 
     //unit_types
     Route::resource('unit-types', 'UnitTypeController');
+
+    //settings
+    Route::resource('settings', 'SettingController')->except('store', 'show', 'destroy');
 });

@@ -43,4 +43,14 @@ class User extends Authenticatable
     {
         return $this->hasOne(Owner::class, 'user_id', 'id');
     }
+
+    public static function Admins()
+    {
+        return User::where('type', 'Admin');
+    }
+
+    public static function Users()
+    {
+        return User::where('type', 'User');
+    }
 }

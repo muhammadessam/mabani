@@ -18,14 +18,20 @@
                                 <tr>
                                     <th>الاسم</th>
                                     <th>الايميل</th>
+                                    <th>الادوار</th>
                                     <th>اجراء</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach(\App\User::all() as $item)
+                                @foreach(\App\User::Admins()->get() as $item)
                                     <tr>
                                         <td>{{$item['name']}}</td>
                                         <td>{{$item['email']}}</td>
+                                        <td>
+                                            @foreach($item->roles as $role)
+                                                {{$role->name}}،
+                                            @endforeach
+                                        </td>
                                         <td class="d-flex">
                                             <a class="btn btn-flat btn-info ml-1" href="{{route('users.show', $item)}}"><i class="fa fa-eye"></i></a>
                                             <a class="btn btn-flat btn-warning ml-1" href="{{route('users.edit', $item)}}"><i class="fa fa-edit"></i></a>
