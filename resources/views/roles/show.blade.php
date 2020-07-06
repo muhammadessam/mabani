@@ -7,7 +7,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
-                            <form action="{{route('admin.store.role.permissions', $role)}}" method="post">
+                            <form action="{{route('store.role.permissions', $role)}}" method="post">
                                 @csrf
                                 @foreach(\App\Permission::all() as $item)
                                     <div class="form-group">

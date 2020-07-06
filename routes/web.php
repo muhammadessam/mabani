@@ -21,4 +21,10 @@ Route::middleware('auth')->prefix('admin')->group(function () {
     Route::resource('buildings', 'BuildingController');
     Route::post('{building}/add-owner', 'BuildingController@addOwner')->name('building.attach.owners');
     Route::post('{building}/{owner}/remove', 'BuildingController@removeOwner')->name('buildings.owners.detach');
+
+    //floors
+    Route::resource('floors', 'FloorController');
+
+    //unit_types
+    Route::resource('unit-types', 'UnitTypeController');
 });
