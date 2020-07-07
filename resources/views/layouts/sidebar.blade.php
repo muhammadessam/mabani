@@ -85,9 +85,10 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="" class="nav-link {{request()->routeIs('roles.*') ? 'active' : ''}}">
+                                <a href="{{ route('units.index')}}" class="nav-link {{request()->routeIs('units.*') ? 'active' : ''}}">
                                     <i class="fa fa-circle-o nav-icon"></i>
                                     <p>الوحدات</p>
+                                <span class="badge badge-info float-left">{{\App\Unit::all()->count()}}</span>
                                 </a>
                             </li>
                         </ul>

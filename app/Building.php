@@ -22,4 +22,9 @@ class Building extends Model
     {
         return $this->belongsToMany(Owner::class, 'buildings_owners', 'building_id', 'owner_id')->withPivot('percentage');
     }
+
+    public function units()
+    {
+        return $this->hasMany(Unit::class, 'building_id', 'id');
+    }
 }

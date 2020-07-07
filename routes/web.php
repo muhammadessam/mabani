@@ -30,4 +30,7 @@ Route::middleware('auth')->prefix('admin')->group(function () {
 
     //settings
     Route::resource('settings', 'SettingController')->except('store', 'show', 'destroy');
+
+    //units
+    Route::resource('units', 'UnitController');
 });
