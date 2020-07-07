@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Owner;
-use App\User;
+use App\Tenant;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use App\User;
 use Illuminate\Validation\Rule;
 
-class OwnerController extends Controller
+class TenantController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +17,7 @@ class OwnerController extends Controller
      */
     public function index()
     {
-        return view('owners.index');
+        return view('tenants.index');
     }
 
     /**
@@ -27,7 +27,7 @@ class OwnerController extends Controller
      */
     public function create()
     {
-        return view('owners.create');
+        return view('tenants.create');
     }
 
     /**
@@ -48,66 +48,66 @@ class OwnerController extends Controller
             'password' => 'كلمة المرور',
         ]);
         $request['password'] = Hash::make($request['password']);
-        $request['type']='User';
+        $request['type'] = 'User';
         $user = User::create($request->all());
-        $user->owner()->create();
+        $user->tenant()->create();
         $this->actionDone();
-        return redirect()->route('owners.index');
+        return redirect()->route('tenants.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param \App\Owner $owner
+     * @param \App\Tenant $tenant
      * @return \Illuminate\Http\Response
      */
-    public function show(Owner $owner)
+    public function show(Tenant $tenant)
     {
-        return view('owners.show', compact('owner'));
+        return view('tenants.show', compact('tenant'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param \App\Owner $owner
+     * @param \App\Tenant $tenant
      * @return \Illuminate\Http\Response
      */
-    public function edit(Owner $owner)
+    public function edit(Tenant $tenant)
     {
-        return view('owners.edit', compact('owner'));
+        return view('tenants.edit', compact('tenant'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param \Illuminate\Http\Request $request
-     * @param \App\Owner $owner
+     * @param \App\Tenant $tenant
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Owner $owner)
+    public function update(Request $request, Tenant $tenant)
     {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore($owner->user)],
+            'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore($tenant->user)],
         ], [], [
             'name' => 'الاسم',
             'email' => 'البريد',
         ]);
-        $request['password'] = $request['password'] ? Hash::make($request['password']) : $owner->user['password'];
-        $owner->user->update($request->all());
+        $request['password'] = $request['password'] ? Hash::make($request['password']) : $tenant->user['password'];
+        $tenant->user->update($request->all());
         $this->actionDone();
-        return redirect()->route('owners.index');
+        return redirect()->route('tenants.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param \App\Owner $owner
+     * @param \App\Tenant $tenant
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Owner $owner)
+    public function destroy(Tenant $tenant)
     {
-        $owner->user()->delete();
+        $tenant->user()->delete();
         $this->actionDone();
         return redirect()->back();
     }

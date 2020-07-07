@@ -18,7 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'phone', 'nationality'
+        'name', 'email', 'password', 'phone', 'nationality','type'
     ];
 
     /**
@@ -52,5 +52,10 @@ class User extends Authenticatable
     public static function Users()
     {
         return User::where('type', 'User');
+    }
+
+    public function tenant()
+    {
+        return $this->hasOne(Tenant::class, 'user_id', 'id');
     }
 }

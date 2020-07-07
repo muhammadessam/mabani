@@ -32,18 +32,21 @@
                                 <a href="{{route('users.index')}}" class="nav-link {{request()->routeIs('users.*') ? 'active' : ''}}">
                                     <i class="fa fa-circle-o nav-icon"></i>
                                     <p>المشرفين</p>
+                                    <span class="badge badge-danger float-left">{{\App\User::Admins()->count()}}</span>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="{{route('roles.index')}}" class="nav-link {{request()->routeIs('roles.*') ? 'active' : ''}}">
                                     <i class="fa fa-circle-o nav-icon"></i>
                                     <p>الادوار</p>
+                                    <span class="badge-danger badge float-left">{{\App\Role::all()->count()}}</span>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="{{route('permissions.index')}}" class="nav-link {{request()->routeIs('permissions.*') ? 'active' : ''}}">
                                     <i class="fa fa-circle-o nav-icon"></i>
                                     <p>الاذونات</p>
+                                    <span class="badge-danger badge float-left">{{\App\Permission::all()->count()}}</span>
                                 </a>
                             </li>
                         </ul>
@@ -52,7 +55,7 @@
                         <a href="{{route('buildings.index')}}" class="nav-link {{request()->routeIs('buildings.*') ? 'active' : ''}}">
                             <i class="nav-icon fa fa-building"></i>
                             <p>المباني</p>
-                            <span class="badge badge-info float-left">{{\App\Building::all()->count()}}</span>
+                            <span class="badge badge-danger float-left">{{\App\Building::all()->count()}}</span>
                         </a>
                     </li>
 
@@ -65,6 +68,7 @@
                                 </svg>
                             </i>
                             <p>الطوابق</p>
+                            <span class="badge badge-danger float-left">{{\App\Floor::all()->count()}}</span>
                         </a>
                     </li>
 
@@ -81,14 +85,14 @@
                                 <a href="{{route('unit-types.index')}}" class="nav-link {{request()->routeIs('unit-types.*') ? 'active' : ''}}">
                                     <i class="fa fa-circle-o nav-icon"></i>
                                     <p>الانواع</p>
-                                    <span class="badge badge-success float-left">{{\App\UnitType::all()->count()}}</span>
+                                    <span class="badge badge-danger float-left">{{\App\UnitType::all()->count()}}</span>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="{{ route('units.index')}}" class="nav-link {{request()->routeIs('units.*') ? 'active' : ''}}">
                                     <i class="fa fa-circle-o nav-icon"></i>
                                     <p>الوحدات</p>
-                                <span class="badge badge-info float-left">{{\App\Unit::all()->count()}}</span>
+                                    <span class="badge badge-danger float-left">{{\App\Unit::all()->count()}}</span>
                                 </a>
                             </li>
                         </ul>
@@ -98,14 +102,15 @@
                         <a href="{{route('owners.index')}}" class="nav-link {{request()->routeIs('owners.*') ?'active':''}}">
                             <i class="nav-icon fa fa-user"></i>
                             <p>المالكون</p>
-                            <span class="badge badge-success float-left">{{\App\Owner::all()->count()}}</span>
+                            <span class="badge badge-danger float-left">{{\App\Owner::all()->count()}}</span>
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a href="" class="nav-link">
+                        <a href="{{route('tenants.index') }}" class="nav-link {{request()->routeIs('tenants.*') ? 'active':''}}">
                             <i class="nav-icon fa fa-users"></i>
                             <p>المستأجرون</p>
+                            <span class="float-left badge-danger badge">{{\App\Tenant::all()->count()}}</span>
                         </a>
                     </li>
 

@@ -26,12 +26,12 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="header">الهيدر</label>
+                            <label for="header">رأس التقرير</label>
                             <textarea class="form-control" name="header" id="header">{{\App\Setting::MainSettings()->header}}</textarea>
                             <x-error name="header"></x-error>
                         </div>
                         <div class="form-group">
-                            <label for="footer">الفوتر</label>
+                            <label for="footer">تذييل التقرير</label>
                             <textarea class="form-control" name="footer" id="footer">{{\App\Setting::MainSettings()->footer}}</textarea>
                             <x-error name="footer"></x-error>
                         </div>

@@ -1,5 +1,5 @@
 @extends('layouts.layout')
-@section('title', $owner->user->name)
+@section('title', $tenant->user->name)
 @section('content')
     <div class="content">
         <div class="container-fluid">
@@ -14,21 +14,21 @@
                                 <div class="col">
                                     <div class="form-group">
                                         <label for="name">الاسم</label>
-                                        <div class="form-control">{{$owner->user['name']}}</div>
+                                        <div class="form-control">{{$tenant->user['name']}}</div>
                                     </div>
                                     <div class="form-group">
                                         <label for="phone">الهاتف</label>
-                                        <div class="form-control">{{$owner->user['phone']}}</div>
+                                        <div class="form-control">{{$tenant->user['phone']}}</div>
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="form-group">
                                         <label for="email">الايميل</label>
-                                        <div class="form-control">{{$owner->user['email']}}</div>
+                                        <div class="form-control">{{$tenant->user['email']}}</div>
                                     </div>
                                     <div class="form-group">
                                         <label for="nationality">الجنسية</label>
-                                        <div class="form-control">{{$owner->user['nationality']}}</div>
+                                        <div class="form-control">{{$tenant->user['nationality']}}</div>
                                     </div>
                                 </div>
                             </div>

@@ -33,4 +33,7 @@ Route::middleware('auth')->prefix('admin')->group(function () {
 
     //units
     Route::resource('units', 'UnitController');
+
+    //tenants
+    Route::resource('tenants', 'TenantController');
 });
