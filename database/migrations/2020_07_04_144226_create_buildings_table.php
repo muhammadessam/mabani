@@ -20,6 +20,7 @@ class CreateBuildingsTable extends Migration
             $table->string('block_number');
             $table->string('plot_number');
             $table->text('img')->nullable()->default(null);
+            $table->softDeletes();
             $table->timestamps();
         });
     }

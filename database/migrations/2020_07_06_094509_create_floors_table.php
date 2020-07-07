@@ -16,6 +16,7 @@ class CreateFloorsTable extends Migration
         Schema::create('floors', function (Blueprint $table) {
             $table->id();
             $table->string('floor');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

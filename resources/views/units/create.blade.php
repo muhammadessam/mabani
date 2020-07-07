@@ -1,5 +1,5 @@
 @extends('layouts.layout')
-@section('title', 'اضافة مبني جديد')
+@section('title', 'اضافة وحدة جديد')
 @section('content')
     <div class="content">
         <div class="container-fluid">

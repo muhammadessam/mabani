@@ -20,6 +20,7 @@ class CreateBuildingsOwnersTable extends Migration
             $table->double('percentage');
             $table->foreign('building_id')->references('id')->on('buildings')->onDelete('cascade');
             $table->foreign('owner_id')->references('id')->on('owners')->onDelete('cascade');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

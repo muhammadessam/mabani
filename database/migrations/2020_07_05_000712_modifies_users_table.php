@@ -16,7 +16,6 @@ class ModifiesUsersTable extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->string('phone')->nullable()->default(null);
             $table->string('nationality')->nullable()->default(null);
-
         });
     }
 

@@ -24,7 +24,7 @@ class CreateUnitsTable extends Migration
             $table->foreign('unit_type_id')->references('id')->on('unit_types')->onDelete('cascade');
             $table->foreign('floor_id')->references('id')->on('floors')->onDelete('cascade');
             $table->foreign('building_id')->references('id')->on('buildings')->onDelete('cascade');
-
+            $table->softDeletes();
             $table->timestamps();
         });
     }

@@ -72,7 +72,7 @@
                         </a>
                     </li>
 
-                    <li class="nav-item has-treeview {{request()->routeIs('units.*') || request()->routeIs('unit-types.*') ? 'menu-open' : ''}}">
+                    <li class="nav-item has-treeview {{request()->routeIs('contracts.*')||request()->routeIs('units.*') || request()->routeIs('unit-types.*') ? 'menu-open' : ''}}">
                         <a href="#" class="nav-link ">
                             <i class="nav-icon fa fa-cubes"></i>
                             <p>
@@ -93,6 +93,13 @@
                                     <i class="fa fa-circle-o nav-icon"></i>
                                     <p>الوحدات</p>
                                     <span class="badge badge-danger float-left">{{\App\Unit::all()->count()}}</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('contracts.index')}}" class="nav-link {{request()->routeIs('contracts.*') ? 'active' : ''}}">
+                                    <i class="fa fa-circle-o nav-icon"></i>
+                                    <p>التعاقدات</p>
+                                    <span class="badge badge-danger float-left">{{\App\Contract::all()->count()}}</span>
                                 </a>
                             </li>
                         </ul>

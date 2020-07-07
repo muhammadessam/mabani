@@ -36,4 +36,7 @@ Route::middleware('auth')->prefix('admin')->group(function () {
 
     //tenants
     Route::resource('tenants', 'TenantController');
+
+    //contracts
+    Route::resource('contracts', 'ContractController');
 });
