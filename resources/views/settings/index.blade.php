@@ -5,7 +5,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">التحكم في الموقع</h3>
+                    <h3 class="card-title">إعدادات المؤسسة </h3>
                 </div>
                 <div class="card-body">
                     <form action="{{route('settings.update', \App\Setting::MainSettings())}}" method="post" enctype="multipart/form-data">

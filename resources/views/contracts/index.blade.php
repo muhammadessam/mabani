@@ -6,7 +6,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">التعاقدات</h3>
+                        <h3 class="card-title">العقود</h3>
                         <div class="card-tools">
                             <a class="btn btn-flat btn-success" href="{{route('contracts.create')}}"><i class="fa fa-plus"></i></a>
                         </div>

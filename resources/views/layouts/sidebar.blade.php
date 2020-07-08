@@ -98,7 +98,7 @@
                             <li class="nav-item">
                                 <a href="{{ route('contracts.index')}}" class="nav-link {{request()->routeIs('contracts.*') ? 'active' : ''}}">
                                     <i class="fa fa-circle-o nav-icon"></i>
-                                    <p>التعاقدات</p>
+                                    <p>العقود</p>
                                     <span class="badge badge-danger float-left">{{\App\Contract::all()->count()}}</span>
                                 </a>
                             </li>

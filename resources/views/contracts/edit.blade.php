@@ -5,7 +5,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">اضافة تعاقد جديد</h3>
+                        <h3 class="card-title">تعديل</h3>
                         <div class="card-tools">
                             <a class="btn btn-flat btn-success" href="{{route('contracts.index')}}"><i class="fa fa-list"></i></a>
                         </div>
