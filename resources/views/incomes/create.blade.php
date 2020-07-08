@@ -65,12 +65,6 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="balance">الرصيد</label>
-                                    <input class="form-control" type="text" name="balance" id="balance" value="{{old('balance')}}">
-                                    <x-error name="balance"></x-error>
-                                </div>
-
-                                <div class="form-group">
                                     <label for="note">ملاحظات</label>
                                     <textarea class="form-control" name="note" id="note">{{old('note')}}</textarea>
                                     <x-error name="note"></x-error>

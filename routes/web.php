@@ -46,5 +46,8 @@ Route::middleware('auth')->prefix('admin')->group(function () {
         Route::resource('income', 'IncomeController');
     });
     //expense
-
+    Route::name('expenses.')->prefix('expenses')->group(function () {
+        Route::resource('category', 'ExpensesCategoryController');
+        Route::resource('expense', 'IncomeController');
+    });
 });

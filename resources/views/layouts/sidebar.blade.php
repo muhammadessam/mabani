@@ -122,7 +122,7 @@
                     </li>
 
 
-                    <li class="nav-item has-treeview {{request()->routeIs('income.*') ? 'menu-open' : ''}}">
+                    <li class="nav-item has-treeview {{request()->routeIs('income.*') || request()->routeIs('expenses.*') ? 'menu-open' : ''}}">
                         <a href="#" class="nav-link ">
                             <i class="nav-icon fa fa-money"></i>
                             <p>
@@ -156,7 +156,7 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li class="nav-item has-treeview ">
+                            <li class="nav-item has-treeview {{request()->routeIs('expenses.*')}} ">
                                 <a href="#" class="nav-link ">
                                     <i class="nav-icon fa fa-cubes"></i>
                                     <p>
@@ -166,14 +166,14 @@
                                 </a>
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
-                                        <a href="{{route('unit-types.index')}}" class="nav-link {{request()->routeIs('unit-types.*') ? 'active' : ''}}">
+                                        <a href="{{route('expenses.category.index')}}" class="nav-link {{request()->routeIs('expenses.category.*') ? 'active' : ''}}">
                                             <i class="fa fa-circle-o nav-icon"></i>
                                             <p>الانواع</p>
                                             <span class="badge badge-danger float-left"></span>
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="{{ route('units.index')}}" class="nav-link {{request()->routeIs('units.*') ? 'active' : ''}}">
+                                        <a href="{{ route('units.index')}}" class="nav-link {{request()->routeIs('expenses.expense.*') ? 'active' : ''}}">
                                             <i class="fa fa-circle-o nav-icon"></i>
                                             <p>المصروفات</p>
                                             <span class="badge badge-danger float-left"></span>

@@ -42,7 +42,6 @@ class IncomeController extends Controller
             'date' => 'required|date',
             'amount' => 'required',
             'paid' => 'required',
-            'balance' => 'required',
         ], [], [
             'cat_id' => 'نوع الدخل',
             'building_id' => 'المبني',
@@ -50,8 +49,8 @@ class IncomeController extends Controller
             'date' => 'التاريخ',
             'amount' => 'القيمة',
             'paid' => 'الدفع',
-            'balance' => 'الرصيد',
         ]);
+        $request['balance'] = $request['amount'] - $request['paid'];
         Income::create($request->all());
         $this->actionDone();
         return redirect()->route('income.income.index');
@@ -96,7 +95,6 @@ class IncomeController extends Controller
             'date' => 'required|date',
             'amount' => 'required',
             'paid' => 'required',
-            'balance' => 'required',
         ], [], [
             'cat_id' => 'نوع الدخل',
             'building_id' => 'المبني',
@@ -104,8 +102,8 @@ class IncomeController extends Controller
             'date' => 'التاريخ',
             'amount' => 'القيمة',
             'paid' => 'الدفع',
-            'balance' => 'الرصيد',
         ]);
+        $request['balance'] = $request['amount'] - $request['paid'];
         $income->update($request->all());
         $this->actionDone();
         return redirect()->route('income.income.index');

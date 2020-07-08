@@ -65,11 +65,6 @@
                                     <x-error name="paid"></x-error>
                                 </div>
 
-                                <div class="form-group">
-                                    <label for="balance">الرصيد</label>
-                                    <input class="form-control" type="text" name="balance" id="balance" value="{{$income['balance']}}">
-                                    <x-error name="balance"></x-error>
-                                </div>
 
                                 <div class="form-group">
                                     <label for="note">ملاحظات</label>
