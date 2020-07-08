@@ -121,11 +121,68 @@
                         </a>
                     </li>
 
-                    <li class="nav-item">
-                        <a href="" class="nav-link">
+
+                    <li class="nav-item has-treeview {{request()->routeIs('income.*') ? 'menu-open' : ''}}">
+                        <a href="#" class="nav-link ">
                             <i class="nav-icon fa fa-money"></i>
-                            <p>المصروفات</p>
+                            <p>
+                                الاموال
+                                <i class="fa fa-angle-left right"></i>
+                            </p>
                         </a>
+                        <ul class="nav nav-treeview {{request()->routeIs('income.*') ? 'menu-open' : ''}}">
+                            <li class="nav-item has-treeview {{request()->routeIs('income.*') ? 'menu-open' : ''}}">
+                                <a href="#" class="nav-link ">
+                                    <i class="nav-icon fa fa-cubes"></i>
+                                    <p>
+                                        الدخل
+                                        <i class="fa fa-angle-left right"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="{{route('income.category.index')}}" class="nav-link {{request()->routeIs('income.category.*') ? 'active' : ''}}">
+                                            <i class="fa fa-circle-o nav-icon"></i>
+                                            <p>الانواع</p>
+                                            <span class="badge badge-danger float-left"></span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ route('income.income.index')}}" class="nav-link {{request()->routeIs('income.income.*') ? 'active' : ''}}">
+                                            <i class="fa fa-circle-o nav-icon"></i>
+                                            <p>الدخل</p>
+                                            <span class="badge badge-danger float-left"></span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item has-treeview ">
+                                <a href="#" class="nav-link ">
+                                    <i class="nav-icon fa fa-cubes"></i>
+                                    <p>
+                                        المصروفات
+                                        <i class="fa fa-angle-left right"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="{{route('unit-types.index')}}" class="nav-link {{request()->routeIs('unit-types.*') ? 'active' : ''}}">
+                                            <i class="fa fa-circle-o nav-icon"></i>
+                                            <p>الانواع</p>
+                                            <span class="badge badge-danger float-left"></span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{ route('units.index')}}" class="nav-link {{request()->routeIs('units.*') ? 'active' : ''}}">
+                                            <i class="fa fa-circle-o nav-icon"></i>
+                                            <p>المصروفات</p>
+                                            <span class="badge badge-danger float-left"></span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                        </ul>
                     </li>
 
                     <li class="nav-item">

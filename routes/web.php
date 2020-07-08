@@ -39,4 +39,12 @@ Route::middleware('auth')->prefix('admin')->group(function () {
 
     //contracts
     Route::resource('contracts', 'ContractController');
+
+    //income
+    Route::name('income.')->prefix('income')->group(function () {
+        Route::resource('category', 'IncomeCategoryController');
+        Route::resource('income', 'IncomeController');
+    });
+    //expense
+
 });
