@@ -26,6 +26,20 @@
                             </div>
                         </div>
                         <div class="form-group">
+                            <label for="exampleInputFile">الختم</label>
+                            <div class="input-group">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="stamp_temp" name="stamp_temp">
+                                    <label class="custom-file-label" for="stamp_temp">اختر صورة الشعار</label>
+                                </div>
+                                @if(\App\Setting::MainSettings()->stamp)
+                                    <div class="img-thumbnail">
+                                        <img src="{{asset(\App\Setting::MainSettings()->stamp)}}" alt="photo" style="width: 100px;height: 100px">
+                                    </div>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="form-group">
                             <label for="header">رأس التقرير</label>
                             <textarea class="form-control" name="header" id="header">{{\App\Setting::MainSettings()->header}}</textarea>
                             <x-error name="header"></x-error>

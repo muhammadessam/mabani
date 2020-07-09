@@ -71,7 +71,10 @@ class SettingController extends Controller
     {
         if ($request->hasFile('logo_temp'))
             $request['logo'] = $this->storeFile('Logo', 'logo_temp');
-        $setting->update($request->except('logo_temp'));
+        if ($request->hasFile('stamp_temp'))
+            $request['stamp'] = $this->storeFile('Stamp', 'stamp_temp');
+
+        $setting->update($request->except('logo_temp', 'stamp_temp'));
         $this->actionDone();
         return redirect()->back();
     }
