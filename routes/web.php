@@ -50,4 +50,7 @@ Route::middleware('auth')->prefix('admin')->group(function () {
         Route::resource('category', 'ExpensesCategoryController');
         Route::resource('expense', 'IncomeController');
     });
+
+    //employees
+    Route::resource('employees', 'EmployeeController');
 });

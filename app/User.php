@@ -18,7 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'phone', 'nationality','type'
+        'name', 'email', 'password', 'phone', 'nationality', 'type'
     ];
 
     /**
@@ -42,6 +42,11 @@ class User extends Authenticatable
     public function owner()
     {
         return $this->hasOne(Owner::class, 'user_id', 'id');
+    }
+
+    public function employee()
+    {
+        return $this->hasOne(Employee::class, 'user_id', 'id');
     }
 
     public static function Admins()

@@ -114,6 +114,13 @@
                     </li>
 
                     <li class="nav-item">
+                        <a href="{{route('employees.index')}}" class="nav-link {{request()->routeIs('employees.*') ?'active':''}}">
+                            <i class="nav-icon fa fa-user-secret"></i>
+                            <p>الموظفون</p>
+                            <span class="badge badge-danger float-left">{{\App\Employee::all()->count()}}</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a href="{{route('tenants.index') }}" class="nav-link {{request()->routeIs('tenants.*') ? 'active':''}}">
                             <i class="nav-icon fa fa-users"></i>
                             <p>المستأجرون</p>
