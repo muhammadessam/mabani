@@ -23,7 +23,7 @@ class CreateExpensesTable extends Migration
             $table->double('amount');
             $table->double('paid');
             $table->double('balance');
-            $table->longText('note');
+            $table->longText('note')->nullable()->default(null);
             $table->foreign('cat_id')->references('id')->on('expenses_categories')->onDelete('cascade');
             $table->foreign('building_id')->references('id')->on('buildings')->onDelete('cascade');
             $table->foreign('unit_id')->references('id')->on('units')->onDelete('cascade');

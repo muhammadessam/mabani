@@ -180,7 +180,7 @@
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="{{ route('units.index')}}" class="nav-link {{request()->routeIs('expenses.expense.*') ? 'active' : ''}}">
+                                        <a href="{{ route('expenses.expense.index')}}" class="nav-link {{request()->routeIs('expenses.expense.*') ? 'active' : ''}}">
                                             <i class="fa fa-circle-o nav-icon"></i>
                                             <p>المصروفات</p>
                                             <span class="badge badge-danger float-left"></span>

@@ -48,7 +48,7 @@ Route::middleware('auth')->prefix('admin')->group(function () {
     //expense
     Route::name('expenses.')->prefix('expenses')->group(function () {
         Route::resource('category', 'ExpensesCategoryController');
-        Route::resource('expense', 'IncomeController');
+        Route::resource('expense', 'ExpenseController');
     });
 
     //employees
