@@ -11,7 +11,7 @@
                                 <a href="{{route('tenants.create')}}" class="btn btn-flat btn-success"><i class="fa fa-plus"></i></a>
                             </div>
                         </div>
-                        <div class="card-body">
+                        <div class="card-body"  style="overflow: auto">
                             <table class="table table-striped" id="owners">
                                 <thead>
                                 <tr>

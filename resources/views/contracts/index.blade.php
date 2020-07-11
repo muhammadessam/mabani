@@ -11,7 +11,7 @@
                             <a class="btn btn-flat btn-success" href="{{route('contracts.create')}}"><i class="fa fa-plus"></i></a>
                         </div>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body"  style="overflow: auto">
                         <table class="table-striped table" id="contracts">
                             <thead>
                             <tr>
@@ -33,7 +33,7 @@
                                     <td>{{$item['number']}}</td>
                                     <td>{{$item['start']}}</td>
                                     <td>{{$item['end']}}</td>
-                                    <td>{{$item['period']}}</td>
+                                    <td>{{$item['period']}} شهرا</td>
                                     <td>{{$item['rent']}}</td>
                                     <td>{{$item['payment_method']}}</td>
                                     <td class="d-flex">

@@ -13,7 +13,7 @@
                                             class="fa fa-plus"></i></a>
                             </div>
                         </div>
-                        <div class="card-body">
+                        <div class="card-body"  style="overflow: auto">
                             <table id="units" class="table table-striped">
                                 <thead>
                                 <tr>

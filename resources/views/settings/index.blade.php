@@ -30,7 +30,7 @@
                             <div class="input-group">
                                 <div class="custom-file">
                                     <input type="file" class="custom-file-input" id="stamp_temp" name="stamp_temp">
-                                    <label class="custom-file-label" for="stamp_temp">اختر صورة الشعار</label>
+                                    <label class="custom-file-label" for="stamp_temp">اختر صورة الختم</label>
                                 </div>
                                 @if(\App\Setting::MainSettings()->stamp)
                                     <div class="img-thumbnail">

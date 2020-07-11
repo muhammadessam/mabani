@@ -18,7 +18,7 @@
                                 </form>
                             </div>
                         </div>
-                        <div class="card-body">
+                        <div class="card-body"  style="overflow: auto">
                             <table id="permissions" class="table table-striped">
                                 <thead>
                                 <tr>

@@ -12,7 +12,7 @@
                                 <a href="{{route('users.create')}}" class="btn btn-flat btn-success" title="اضافة مستخدم جديد"><i class="fa fa-plus"></i></a>
                             </div>
                         </div>
-                        <div class="card-body">
+                        <div class="card-body"  style="overflow: auto">
                             <table id="users" class="table-striped table">
                                 <thead>
                                 <tr>
