@@ -16,8 +16,8 @@ class CreateDocumentsTable extends Migration
         Schema::create('documents', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->longText('note');
-            $table->
+            $table->longText('note')->nullable()->default(null);
+            $table->date('expire_day');
             $table->timestamps();
         });
     }

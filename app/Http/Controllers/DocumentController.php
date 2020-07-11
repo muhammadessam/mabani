@@ -14,7 +14,7 @@ class DocumentController extends Controller
      */
     public function index()
     {
-        //
+        return view('documents.index');
     }
 
     /**
@@ -24,7 +24,7 @@ class DocumentController extends Controller
      */
     public function create()
     {
-        //
+        return view('documents.create');
     }
 
     /**
@@ -35,7 +35,16 @@ class DocumentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'expire_day' => 'required'
+        ], [], [
+            'name' => "الاسم",
+            'expire_day' => 'تاريخ الانتهاء'
+        ]);
+        Document::create($request->all());
+        $this->actionDone();
+        return redirect()->route('documents.index');
     }
 
     /**
@@ -57,7 +66,7 @@ class DocumentController extends Controller
      */
     public function edit(Document $document)
     {
-        //
+        return view('documents.edit', compact('document'));
     }
 
     /**
@@ -69,8 +78,16 @@ class DocumentController extends Controller
      */
     public function update(Request $request, Document $document)
     {
-        //
-    }
+        $request->validate([
+            'name' => 'required',
+            'expire_day' => 'required'
+        ], [], [
+            'name' => "الاسم",
+            'expire_day' => 'تاريخ الانتهاء'
+        ]);
+        $document->update($request->all());
+        $this->actionDone();
+        return redirect()->route('documents.index');    }
 
     /**
      * Remove the specified resource from storage.
@@ -80,6 +97,8 @@ class DocumentController extends Controller
      */
     public function destroy(Document $document)
     {
-        //
+        $document->delete();
+        $this->actionDone();
+        return redirect()->back();
     }
 }

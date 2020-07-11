@@ -53,4 +53,7 @@ Route::middleware('auth')->prefix('admin')->group(function () {
 
     //employees
     Route::resource('employees', 'EmployeeController');
+
+    //documents
+    Route::resource('documents', 'DocumentController');
 });
