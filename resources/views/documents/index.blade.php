@@ -20,7 +20,7 @@
                                     <th>الاسم</th>
                                     <th>ملاحظات</th>
                                     <th>تارخ الانتهاء</th>
-                                    <th>الفترة المتبقية</th>
+                                    <th>ذكرني قبل الانتهاء</th>
                                     <th>اجراء</th>
                                 </tr>
                             </thead>
@@ -30,7 +30,7 @@
                                     <td>{{$item['name']}}</td>
                                     <td>{{$item['note']}}</td>
                                     <td>{{$item['expire_day']}}</td>
-                                    <td>{{Carbon\Carbon::create($item['expire_day'])->diffForHumans(now())}}</td>
+                                    <td>{{$item['remind_me']}} يوما </td>
                                     <td class="d-flex">
                                         <a href="{{route('documents.edit', $item)}}" class="btn btn-flat btn-primary"><i
                                                 class="fa fa-edit"></i></a>

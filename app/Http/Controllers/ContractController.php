@@ -41,7 +41,7 @@ class ContractController extends Controller
             'tenant_id' => 'required|exists:tenants,id',
             'number' => 'required',
             'start' => 'required|date',
-            'end' => 'required|date',
+            'period' => 'required',
             'rent' => 'required',
             'payment_method' => 'required',
         ], [], [
@@ -49,10 +49,10 @@ class ContractController extends Controller
             'tenant_id' => 'المستأجر',
             'number' => 'الرقم',
             'start' => 'تاريخ البداية',
-            'end' => 'تاريخ النهاية',
+            'period' => 'المدة',
             'payment_method' => 'طريقة الدفع',
         ]);
-        $request['period'] = Carbon::create($request['start'])->diffInMonths($request['end']);
+        $request['end'] = Carbon::create($request['start'])->addMonths($request['period']);
         Contract::create($request->all());
         $this->actionDone();
         return redirect()->route('contracts.index');
@@ -93,7 +93,7 @@ class ContractController extends Controller
             'tenant_id' => 'required|exists:tenants,id',
             'number' => 'required',
             'start' => 'required|date',
-            'end' => 'required|date',
+            'period' => 'required',
             'rent' => 'required',
             'payment_method' => 'required',
         ], [], [
@@ -101,11 +101,10 @@ class ContractController extends Controller
             'tenant_id' => 'المستأجر',
             'number' => 'الرقم',
             'start' => 'تاريخ البداية',
-            'end' => 'تاريخ النهاية',
-            'rent' => 'قيمة الايجار',
+            'period' => 'المدة',
             'payment_method' => 'طريقة الدفع',
         ]);
-        $request['period'] = Carbon::create($request['start'])->diffInMonths($request['end']);
+        $request['end'] = Carbon::create($request['start'])->addMonths($request['period']);
         $contract->update($request->all());
         $this->actionDone();
         return redirect()->route('contracts.index');

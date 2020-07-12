@@ -219,7 +219,7 @@
                         <a href="{{route('documents.index')}}"
                             class="nav-link {{request()->routeIs('documents.*') ? 'active' : ''}}">
                             <i class="nav-icon fa fa-file"></i>
-                            <p>التقارير</p>
+                            <p>المستندات</p>
                             <span class="badge badge-danger float-left">{{App\Document::all()->count()}}</span>
                         </a>
                     </li>

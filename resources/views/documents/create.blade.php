@@ -33,6 +33,11 @@
                                     value="{{old('expire_day')}}">
                                 <x-error name="expire_day"></x-error>
                             </div>
+                            <div class="form-group">
+                                <label for="remind_me">ذكرني قبل انتهاء المدة </label>
+                                <input type="number" name="remind_me" id="remind_me" class="form-control" value="{{old('remind_me')}}">
+                                <x-error name="remind_me"></x-error>
+                            </div>
                             <button class="btn btn-flat btn-success" type="submit"><i class="fa fa-save"></i>
                                 حفظ</button>
                         </form>

@@ -46,9 +46,9 @@
                                 <x-error name="start"></x-error>
                             </div>
                             <div class="form-group">
-                                <label for="end">نهاية الي</label>
-                                <input class="form-control" type="date" name="end" id="end" value="{{$contract['end']}}">
-                                <x-error name="end"></x-error>
+                                <label for="period"> المدة بالاشهر</label>
+                                <input class="form-control" type="number" name="period" id="period" value="{{$contract['period']}}">
+                                <x-error name="period"></x-error>
                             </div>
                             <div class="form-group">
                                 <label for="rent">قيمة الايجار</label>

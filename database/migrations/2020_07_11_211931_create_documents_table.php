@@ -18,6 +18,7 @@ class CreateDocumentsTable extends Migration
             $table->string('name');
             $table->longText('note')->nullable()->default(null);
             $table->date('expire_day');
+            $table->unsignedInteger('remind_me')->default(10);
             $table->timestamps();
         });
     }
