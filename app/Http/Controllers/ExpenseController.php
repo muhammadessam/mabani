@@ -37,18 +37,14 @@ class ExpenseController extends Controller
     {
         $request->validate([
             'cat_id' => 'required|exists:expenses_categories,id',
-            'building_id' => 'required|exists:buildings,id',
-            'unit_id' => 'required|exists:buildings,id',
-            'employee_id' => 'required|exists:employees,id',
+
             'date' => 'required|date',
             'amount' => 'required',
             'paid' => 'required',
         ], [], [
             'cat_id' => 'نوع المصروف',
-            'building_id' => 'المبني',
-            'unit_id' => 'الوحدة',
+
             'date' => 'التاريخ',
-            'employee_id' => 'الموظف',
             'amount' => 'القيمة',
             'paid' => 'الدفع',
         ]);

@@ -34,7 +34,7 @@
                                         <td>{{$item->cat['name']}}</td>
                                         <td>{{$item->building['id']}}</td>
                                         <td>{{$item->unit['name']}}</td>
-                                        <td>{{$item->employee->user['name']}}</td>
+                                        <td>{{$item->employee ? $item->employee->user['name']  :''}}</td>
                                         <td>{{$item['date']}}</td>
                                         <td>{{$item['amount']}}</td>
                                         <td>{{$item['paid']}}</td>
