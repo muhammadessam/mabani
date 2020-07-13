@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 class CreateIncomeCategoriesTable extends Migration
 {
@@ -19,6 +20,9 @@ class CreateIncomeCategoriesTable extends Migration
             $table->softDeletes();
             $table->timestamps();
         });
+        DB::table('income_categories')->insert([
+            'name'=>'المباني'
+        ]);
     }
 
     /**

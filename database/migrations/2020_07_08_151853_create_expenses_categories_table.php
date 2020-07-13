@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-
+use Illuminate\Support\Facades\DB;
 class CreateExpensesCategoriesTable extends Migration
 {
     /**
@@ -19,6 +19,12 @@ class CreateExpensesCategoriesTable extends Migration
             $table->softDeletes();
             $table->timestamps();
         });
+        DB::table('expenses_categories')->insert([
+            'name'=>'المباني'
+        ]);
+        DB::table('expenses_categories')->insert([
+            'name'=>'الموظفون'
+        ]);
     }
 
     /**

@@ -16,8 +16,8 @@ class CreateIncomesTable extends Migration
         Schema::create('incomes', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('cat_id');
-            $table->unsignedBigInteger('building_id');
-            $table->unsignedBigInteger('unit_id');
+            $table->unsignedBigInteger('building_id')->nullable()->default(null);
+            $table->unsignedBigInteger('unit_id')->nullable()->default(null);
             $table->date('date');
             $table->string('amount');
             $table->string('paid');

@@ -27,7 +27,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach(\App\IncomeCategory::all() as $item)
+                                @foreach($data as $item)
                                     <tr>
                                         <td>{{$item['name']}}</td>
                                         <td class="d-flex">

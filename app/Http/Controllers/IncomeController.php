@@ -37,15 +37,11 @@ class IncomeController extends Controller
     {
         $request->validate([
             'cat_id' => 'required|exists:income_categories,id',
-            'building_id' => 'required|exists:buildings,id',
-            'unit_id' => 'required|exists:buildings,id',
             'date' => 'required|date',
             'amount' => 'required',
             'paid' => 'required',
         ], [], [
             'cat_id' => 'نوع الدخل',
-            'building_id' => 'المبني',
-            'unit_id' => 'الوحدة',
             'date' => 'التاريخ',
             'amount' => 'القيمة',
             'paid' => 'الدفع',
@@ -87,22 +83,19 @@ class IncomeController extends Controller
      */
     public function update(Request $request, Income $income)
     {
-
         $request->validate([
             'cat_id' => 'required|exists:income_categories,id',
-            'building_id' => 'required|exists:buildings,id',
-            'unit_id' => 'required|exists:buildings,id',
             'date' => 'required|date',
             'amount' => 'required',
             'paid' => 'required',
         ], [], [
             'cat_id' => 'نوع الدخل',
-            'building_id' => 'المبني',
-            'unit_id' => 'الوحدة',
             'date' => 'التاريخ',
             'amount' => 'القيمة',
             'paid' => 'الدفع',
         ]);
+        $request['building_id'] = $request['building_id'] ??  null;
+        $request['unit_id'] = $request['unit_id'] ?? null;
         $request['balance'] = $request['amount'] - $request['paid'];
         $income->update($request->all());
         $this->actionDone();
