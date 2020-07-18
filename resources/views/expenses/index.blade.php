@@ -41,6 +41,7 @@
                                         <td>{{$item['balance']}}</td>
                                         <td>{{$item['note']}}</td>
                                         <td class="d-flex">
+                                            <a class="btn btn-flat btn-secondary ml-1" href="{{route('expenses.expense.print',$item)}}"><i class="fa fa-edit"></i></a>
                                             <a class="btn btn-flat btn-primary ml-1" href="{{route('expenses.expense.edit',$item)}}"><i class="fa fa-edit"></i></a>
                                             <form action="{{route('expenses.expense.destroy', $item)}}" method="post" onsubmit="return confirm('هل انت متاكد ؟')">
                                                 @csrf

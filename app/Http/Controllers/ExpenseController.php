@@ -118,4 +118,10 @@ class ExpenseController extends Controller
         $this->actionDone();
         return redirect()->back();
     }
+
+
+    public function print(Request $request, Expense $expense)
+    {
+        return view('expenses.print', compact('expense'));
+    }
 }
