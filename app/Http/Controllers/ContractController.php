@@ -52,7 +52,7 @@ class ContractController extends Controller
             'period' => 'المدة',
             'payment_method' => 'طريقة الدفع',
         ]);
-        $request['end'] = Carbon::create($request['start'])->addMonths($request['period']);
+        $request['end'] = Carbon::create($request['start'])->addMonths($request['period'])->subDay();
         Contract::create($request->all());
         $this->actionDone();
         return redirect()->route('contracts.index');
@@ -104,7 +104,7 @@ class ContractController extends Controller
             'period' => 'المدة',
             'payment_method' => 'طريقة الدفع',
         ]);
-        $request['end'] = Carbon::create($request['start'])->addMonths($request['period']);
+        $request['end'] = Carbon::create($request['start'])->addMonths($request['period'])->subDay() ;
         $contract->update($request->all());
         $this->actionDone();
         return redirect()->route('contracts.index');

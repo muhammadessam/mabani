@@ -1,5 +1,5 @@
 @extends('layouts.layout')
-@section('title', 'التقارير')
+@section('title', 'المستندات')
 @section('content')
 <div class="content">
     <div class="container-fluid">
@@ -7,7 +7,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">التقارير</h3>
+                        <h3 class="card-title">المستندات</h3>
                         <div class="card-tools">
                             <a class="btn btn-flat btn-success" href="{{route('documents.create')}}"><i
                                     class="fa fa-plus"></i></a>
