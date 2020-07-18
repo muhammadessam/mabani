@@ -43,7 +43,6 @@ class ExpenseController extends Controller
             'paid' => 'required',
         ], [], [
             'cat_id' => 'نوع المصروف',
-
             'date' => 'التاريخ',
             'amount' => 'القيمة',
             'paid' => 'الدفع',
@@ -88,22 +87,19 @@ class ExpenseController extends Controller
 
         $request->validate([
             'cat_id' => 'required|exists:expenses_categories,id',
-            'building_id' => 'required|exists:buildings,id',
-            'unit_id' => 'required|exists:buildings,id',
-            'employee_id' => 'required|exists:employees,id',
+
             'date' => 'required|date',
             'amount' => 'required',
             'paid' => 'required',
         ], [], [
             'cat_id' => 'نوع المصروف',
-            'building_id' => 'المبني',
-            'unit_id' => 'الوحدة',
-            'employee_id' => 'الموظف',
             'date' => 'التاريخ',
-            'employee_id' => 'الموظف',
             'amount' => 'القيمة',
             'paid' => 'الدفع',
         ]);
+        $request['building_id'] = $request['building_id'] ??  null;
+        $request['unit_id'] = $request['unit_id'] ?? null;
+        $request['employee_id'] = $request['employee_id'] ?? null;
         $request['balance'] = $request['amount'] - $request['paid'];
         $expense->update($request->all());
         $this->actionDone();
