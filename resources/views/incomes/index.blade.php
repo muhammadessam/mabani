@@ -39,6 +39,7 @@
                                         <td>{{$item['balance']}}</td>
                                         <td>{{$item['note']}}</td>
                                         <td class="d-flex">
+                                        <a class="btn btn-flat btn-secondary ml-1" target="_blank" href="{{route('income.income.print', $item)}}"><i class="fa fa-print"></i></a>
                                             <a class="btn btn-flat btn-primary ml-1" href="{{route('income.income.edit',$item)}}"><i class="fa fa-edit"></i></a>
                                             <form action="{{route('income.income.destroy', $item)}}" method="post" onsubmit="return confirm('هل انت متاكد ؟')">
                                                 @csrf

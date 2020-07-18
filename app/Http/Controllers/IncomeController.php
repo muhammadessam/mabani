@@ -114,4 +114,10 @@ class IncomeController extends Controller
         $this->actionDone();
         return redirect()->back();
     }
+
+
+    public function print(Request $request, Income $income)
+    {
+        return view('incomes.print', compact('income'));
+    }
 }
