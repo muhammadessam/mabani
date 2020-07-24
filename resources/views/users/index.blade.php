@@ -53,5 +53,5 @@
     </div>
 @endsection
 @section('javascript')
-    <x-datatable id="users"></x-datatable>
+    <x-datatable id="users" print="0"></x-datatable>
 @endsection

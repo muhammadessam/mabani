@@ -12,9 +12,29 @@ class ExpenseController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('expenses.index');
+        $data = Expense::all();
+        if($request['start']){
+            $data  = $data->where('date', '>=' , $request['start']);
+        }
+        if($request['end']){
+            $data  = $data->where('date', '<=' , $request['end']);
+        }
+
+        if($request['employee_id']){
+            $data  = $data->where('employee_id', $request['employee_id']);
+        }
+
+        if($request['building_id']){
+            $data  = $data->where('building_id', $request['building_id']);
+        }
+
+        if($request['unit_id']){
+            $data  = $data->where('unit_id', $request['unit_id']);
+        }
+
+        return view('expenses.index', compact('data'));
     }
 
     /**

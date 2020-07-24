@@ -55,5 +55,5 @@
 
 @endsection
 @section('javascript')
-<x-datatable id="documents"></x-datatable>
+<x-datatable id="documents" print="0"></x-datatable>
 @endsection

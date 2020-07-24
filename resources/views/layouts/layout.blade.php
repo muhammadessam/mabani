@@ -27,6 +27,7 @@
 
     </div>
     <footer class="main-footer">
+        <strong>CopyLeft © {{\Carbon\Carbon::now()->format('Y')}} <a href="https://www.defaultpath.com">المسار الافتراضي</a>.</strong>
     </footer>
 
 </div>

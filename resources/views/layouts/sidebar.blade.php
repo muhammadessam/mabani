@@ -94,6 +94,14 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
+                                <a href="{{ route('units.index')}}"
+                                   class="nav-link {{request()->routeIs('units.*') ? 'active' : ''}}">
+                                    <i class="fa fa-circle-o nav-icon"></i>
+                                    <p>الوحدات</p>
+                                    <span class="badge badge-danger float-left">{{\App\Unit::all()->count()}}</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
                                 <a href="{{route('unit-types.index')}}"
                                     class="nav-link {{request()->routeIs('unit-types.*') ? 'active' : ''}}">
                                     <i class="fa fa-circle-o nav-icon"></i>
@@ -101,14 +109,7 @@
                                     <span class="badge badge-danger float-left">{{\App\UnitType::all()->count()}}</span>
                                 </a>
                             </li>
-                            <li class="nav-item">
-                                <a href="{{ route('units.index')}}"
-                                    class="nav-link {{request()->routeIs('units.*') ? 'active' : ''}}">
-                                    <i class="fa fa-circle-o nav-icon"></i>
-                                    <p>الوحدات</p>
-                                    <span class="badge badge-danger float-left">{{\App\Unit::all()->count()}}</span>
-                                </a>
-                            </li>
+
                             <li class="nav-item">
                                 <a href="{{ route('contracts.index')}}"
                                     class="nav-link {{request()->routeIs('contracts.*') ? 'active' : ''}}">
@@ -166,19 +167,20 @@
                                     </p>
                                 </a>
                                 <ul class="nav nav-treeview">
-                                    <li class="nav-item">
-                                        <a href="{{route('income.category.index')}}"
-                                            class="nav-link {{request()->routeIs('income.category.*') ? 'active' : ''}}">
-                                            <i class="fa fa-circle-o nav-icon"></i>
-                                            <p>الانواع</p>
-                                            <span class="badge badge-danger float-left"></span>
-                                        </a>
-                                    </li>
+
                                     <li class="nav-item">
                                         <a href="{{ route('income.income.index')}}"
                                             class="nav-link {{request()->routeIs('income.income.*') ? 'active' : ''}}">
                                             <i class="fa fa-circle-o nav-icon"></i>
                                             <p>الدخل</p>
+                                            <span class="badge badge-danger float-left"></span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{route('income.category.index')}}"
+                                           class="nav-link {{request()->routeIs('income.category.*') ? 'active' : ''}}">
+                                            <i class="fa fa-circle-o nav-icon"></i>
+                                            <p>الانواع</p>
                                             <span class="badge badge-danger float-left"></span>
                                         </a>
                                     </li>
@@ -193,19 +195,20 @@
                                     </p>
                                 </a>
                                 <ul class="nav nav-treeview">
-                                    <li class="nav-item">
-                                        <a href="{{route('expenses.category.index')}}"
-                                            class="nav-link {{request()->routeIs('expenses.category.*') ? 'active' : ''}}">
-                                            <i class="fa fa-circle-o nav-icon"></i>
-                                            <p>الانواع</p>
-                                            <span class="badge badge-danger float-left"></span>
-                                        </a>
-                                    </li>
+
                                     <li class="nav-item">
                                         <a href="{{ route('expenses.expense.index')}}"
                                             class="nav-link {{request()->routeIs('expenses.expense.*') ? 'active' : ''}}">
                                             <i class="fa fa-circle-o nav-icon"></i>
                                             <p>المصروفات</p>
+                                            <span class="badge badge-danger float-left"></span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="{{route('expenses.category.index')}}"
+                                           class="nav-link {{request()->routeIs('expenses.category.*') ? 'active' : ''}}">
+                                            <i class="fa fa-circle-o nav-icon"></i>
+                                            <p>الانواع</p>
                                             <span class="badge badge-danger float-left"></span>
                                         </a>
                                     </li>

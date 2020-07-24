@@ -1,5 +1,4 @@
-@props(['id'])
-
+@props(['id', 'print', 'cols', 'header', 'footer'])
 <script>
     $(function () {
         $("#{{$id}}").DataTable({
@@ -25,8 +24,37 @@
                     "sSortAscending": ": تفعيل لترتيب العمود تصاعدياً",
                     "sSortDescending": ": تفعيل لترتيب العمود تنازلياً"
                 }
-            },
-            "info": false,
+            }, "info": false,
+            @if($print)
+            dom: 'Bfrtip',
+            lengthMenu: [[10, 25, 50, 100 - 1], [10, 25, 50, 100, "All"]],
+            pageLength: 10,
+            buttons: [
+                {
+                    extend: 'print',
+                    exportOptions: {
+                        columns: {{$cols}},
+                    },
+                    customize: function (win) {
+                        $(win.document.body).find('h1').text('');
+                        $(win.document.body).find('h1').append(`
+                        <div class="row m-5">
+                            <div class="col-12 text-center">
+                                 <img style="width:200px;height:200px;" src="{{asset(\App\Setting::MainSettings()->logo)}}">
+                            </div>
+                        </div>
+                        `);
+                        $(win.document.body).find('h1').append(`{!! \App\Setting::MainSettings()->header !!}`);
+                        $(win.document.body).find('table').after(`{!! \App\Setting::MainSettings()->footer !!}`);
+                        $(win.document.body).find('table').addClass('mt-5 mb-5');
+
+                    }
+                },
+                'pageLength'
+            ],
+            @endif
+
+
         });
     });
 </script>

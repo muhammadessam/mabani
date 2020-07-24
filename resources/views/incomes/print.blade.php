@@ -74,7 +74,12 @@
 @endsection
 
 @section('javascript')
-<script>
-    window.print();
-</script>
+    <script>
+        $(document).ready(function () {
+            window.print();
+        });
+        window.onafterprint = function () {
+            window.close();
+        }
+    </script>
 @endsection

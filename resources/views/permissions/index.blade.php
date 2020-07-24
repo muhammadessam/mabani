@@ -50,5 +50,5 @@
     </div>
 @endsection
 @section('javascript')
-    <x-datatable id="permissions"></x-datatable>
+    <x-datatable id="permissions" print="0"></x-datatable>
 @endsection

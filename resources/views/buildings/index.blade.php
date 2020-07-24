@@ -143,5 +143,5 @@
 </div>
 @endsection
 @section('javascript')
-<x-datatable id="buildings"></x-datatable>
+<x-datatable id="buildings" print="0"></x-datatable>
 @endsection
