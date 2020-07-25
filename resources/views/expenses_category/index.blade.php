@@ -18,7 +18,7 @@
                                 </form>
                             </div>
                         </div>
-                        <div class="card-body"  style="overflow: auto">
+                        <div class="card-body" style="overflow: auto">
                             <table id="roles" class="table table-striped">
                                 <thead>
                                 <tr>
@@ -31,12 +31,14 @@
                                     <tr>
                                         <td>{{$item['name']}}</td>
                                         <td class="d-flex">
-                                            <a class="btn btn-flat btn-warning ml-1" href="{{route('expenses.category.edit', $item)}}"><i class="fa fa-edit"></i></a>
-                                            <form action="{{route('expenses.category.destroy',$item)}}" method="post" onsubmit="return confirm('هل انت متاكد ؟')">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="btn btn-flat btn-danger"><i class="fa fa-trash"></i></button>
-                                            </form>
+                                            @if($item['id']!=1 && $item['id']!=2)
+                                                <a class="btn btn-flat btn-warning ml-1" href="{{route('expenses.category.edit', $item)}}"><i class="fa fa-edit"></i></a>
+                                                <form action="{{route('expenses.category.destroy',$item)}}" method="post" onsubmit="return confirm('هل انت متاكد ؟')">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-flat btn-danger"><i class="fa fa-trash"></i></button>
+                                                </form>
+                                            @endif
                                         </td>
                                     </tr>
                                 @endforeach

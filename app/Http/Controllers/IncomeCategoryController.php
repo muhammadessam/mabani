@@ -14,7 +14,7 @@ class IncomeCategoryController extends Controller
      */
     public function index()
     {
-        $data = IncomeCategory::all()->except(1);
+        $data = IncomeCategory::all();
         return view('income_category.index', compact('data'));
     }
 

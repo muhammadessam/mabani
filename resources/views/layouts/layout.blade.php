@@ -26,7 +26,7 @@
         @yield('content')
 
     </div>
-    <footer class="main-footer">
+    <footer class="main-footer no-print">
         <strong>CopyLeft © {{\Carbon\Carbon::now()->format('Y')}} <a href="https://www.defaultpath.com">المسار الافتراضي</a>.</strong>
     </footer>
 

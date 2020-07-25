@@ -14,7 +14,7 @@ class ExpensesCategoryController extends Controller
      */
     public function index()
     {
-        $data  = ExpensesCategory::all()->except([1, 2]);
+        $data  = ExpensesCategory::all();
         return view('expenses_category.index', compact('data'));
     }
 
