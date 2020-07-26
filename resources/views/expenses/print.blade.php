@@ -15,7 +15,18 @@
                         {!! \App\Setting::MainSettings()->header !!}
                     </div>
                 </div>
+                @if ($expense->employee_id)
+                    <div class="row mt-5">
+                        <div class="col-3">
+                            تم التسليم مع الشكر من الفاضل:
+                        </div>
+                        <div class="col">
+                            <strong>{{$expense->employee->user->name}}</strong> - <span>{{$expense->employee->user->phone}}</span>
+                        </div>
+                    </div>
+                @endif
             </div>
+
             <div class="card-body mt-5">
                 <div class="row">
                     <div class="col">

@@ -1,7 +1,8 @@
-@props(['id', 'print', 'cols', 'header', 'footer'])
+@props(['id', 'print', 'cols', 'header', 'footer', 'orderCol', 'orderDir'])
 <script>
     $(function () {
         $("#{{$id}}").DataTable({
+            "order": [{{$orderCol ?? '0'}}, "{{$orderDir ?? 'asc'}}"],
             "language": {
                 "sEmptyTable": "ليست هناك بيانات متاحة في الجدول",
                 "sLoadingRecords": "جارٍ التحميل...",
