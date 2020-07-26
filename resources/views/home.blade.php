@@ -21,21 +21,21 @@
                     <!-- small box -->
                     <div class="small-box bg-success">
                         <div class="inner">
-                            <h3>{{\App\Building::all()->count()}}</h3>
+                            <h3>{{\App\Unit::all()->count()}}</h3>
 
                             <p>وحدة</p>
                         </div>
                         <div class="icon">
                             <i class="fa fa-home"></i>
                         </div>
-                        <a href="{{route('buildings.index')}}" class="small-box-footer">عرض<i class="fa fa-arrow-circle-left"></i></a>
+                        <a href="{{route('units.index')}}" class="small-box-footer">عرض<i class="fa fa-arrow-circle-left"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-6">
                     <!-- small box -->
                     <div class="small-box bg-success">
                         <div class="inner">
-                            <h3>{{\App\Building::all()->count()}}</h3>
+                            <h3>{{\App\Floor::all()->count()}}</h3>
 
                             <p>طابق</p>
                         </div>
@@ -48,24 +48,56 @@
                                           d="M2.125 8.567l-1.86.992a.5.5 0 0 0 0 .882l7.5 4a.5.5 0 0 0 .47 0l7.5-4a.5.5 0 0 0 0-.882l-1.86-.992-5.17 2.756a1.5 1.5 0 0 1-1.41 0l.418-.785-.419.785-5.169-2.756z" />
                                 </svg></i>
                         </div>
-                        <a href="{{route('buildings.index')}}" class="small-box-footer">عرض<i class="fa fa-arrow-circle-left"></i></a>
+                        <a href="{{route('floors.index')}}" class="small-box-footer">عرض<i class="fa fa-arrow-circle-left"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-6">
                     <!-- small box -->
                     <div class="small-box bg-success">
                         <div class="inner">
-                            <h3>{{\App\Building::all()->count()}}</h3>
+                            <h3>{{\App\Tenant::all()->count()}}</h3>
 
                             <p>مستأجر</p>
                         </div>
                         <div class="icon">
                             <i class="fa fa-user"></i>
                         </div>
-                        <a href="{{route('buildings.index')}}" class="small-box-footer">عرض<i class="fa fa-arrow-circle-left"></i></a>
+                        <a href="{{route('tenants.index')}}" class="small-box-footer">عرض<i class="fa fa-arrow-circle-left"></i></a>
                     </div>
                 </div>
             </div>
+
+            <div class="row">
+                <div class="col-lg-3 col-6">
+                    <!-- small box -->
+                    <div class="small-box bg-success">
+                        <div class="inner">
+                            <h3>{{\App\Building::all()->count()}}</h3>
+
+                            <p>الموظفون</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fa fa-users"></i>
+                        </div>
+                        <a href="{{route('employees.index')}}" class="small-box-footer">عرض<i class="fa fa-arrow-circle-left"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-6">
+                    <!-- small box -->
+                    <div class="small-box bg-success">
+                        <div class="inner">
+                            <h3>{{\App\Owner::all()->count()}}</h3>
+
+                            <p>المالكون</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fa fa-user"></i>
+                        </div>
+                        <a href="{{route('owners.index')}}" class="small-box-footer">عرض<i class="fa fa-arrow-circle-left"></i></a>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 @endsection
