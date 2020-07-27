@@ -57,6 +57,44 @@
                             </li>
                         </ul>
                     </li>
+
+                    <li
+                            class="nav-item has-treeview {{request()->routeIs('owners.*')||request()->routeIs('employees.*') || request()->routeIs('tenants.*') ? 'menu-open' : ''}}">
+                        <a href="#" class="nav-link ">
+                            <i class="nav-icon fa fa-tree"></i>
+                            <p>
+                                الشركاء
+                                <i class="fa fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{route('owners.index')}}"
+                                   class="nav-link {{request()->routeIs('owners.*') ?'active':''}}">
+                                    <i class="nav-icon fa fa-user"></i>
+                                    <p>المالكون</p>
+                                    <span class="badge badge-danger float-left">{{\App\Owner::all()->count()}}</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{route('employees.index')}}"
+                                   class="nav-link {{request()->routeIs('employees.*') ?'active':''}}">
+                                    <i class="nav-icon fa fa-user-secret"></i>
+                                    <p>الموظفون</p>
+                                    <span class="badge badge-danger float-left">{{\App\Employee::all()->count()}}</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{route('tenants.index') }}"
+                                   class="nav-link {{request()->routeIs('tenants.*') ? 'active':''}}">
+                                    <i class="nav-icon fa fa-users"></i>
+                                    <p>المستأجرون</p>
+                                    <span class="float-left badge-danger badge">{{\App\Tenant::all()->count()}}</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
                     <li class="nav-item">
                         <a href="{{route('buildings.index')}}"
                             class="nav-link {{request()->routeIs('buildings.*') ? 'active' : ''}}">
@@ -121,31 +159,9 @@
                         </ul>
                     </li>
 
-                    <li class="nav-item">
-                        <a href="{{route('owners.index')}}"
-                            class="nav-link {{request()->routeIs('owners.*') ?'active':''}}">
-                            <i class="nav-icon fa fa-user"></i>
-                            <p>المالكون</p>
-                            <span class="badge badge-danger float-left">{{\App\Owner::all()->count()}}</span>
-                        </a>
-                    </li>
 
-                    <li class="nav-item">
-                        <a href="{{route('employees.index')}}"
-                            class="nav-link {{request()->routeIs('employees.*') ?'active':''}}">
-                            <i class="nav-icon fa fa-user-secret"></i>
-                            <p>الموظفون</p>
-                            <span class="badge badge-danger float-left">{{\App\Employee::all()->count()}}</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{route('tenants.index') }}"
-                            class="nav-link {{request()->routeIs('tenants.*') ? 'active':''}}">
-                            <i class="nav-icon fa fa-users"></i>
-                            <p>المستأجرون</p>
-                            <span class="float-left badge-danger badge">{{\App\Tenant::all()->count()}}</span>
-                        </a>
-                    </li>
+
+
 
 
                     <li
