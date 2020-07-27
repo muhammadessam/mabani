@@ -5,7 +5,7 @@
             <div class="row justify-content-center">
                 <div class="col-lg-3 col-6">
                     <!-- small box -->
-                    <div class="small-box bg-success">
+                    <div class="small-box bg-info">
                         <div class="inner">
                             <h3>{{\App\Income::all()->pluck('amount')->sum() - \App\Expense::all()->pluck('amount')->sum()}}</h3>
 
