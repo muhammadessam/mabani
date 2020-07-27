@@ -36,6 +36,7 @@
                                         <td>{{$item->floor->floor}}</td>
                                         <td>{{$item->building->id}}</td>
                                         <td class="d-flex">
+                                            <a href="{{ route('units.show',$item) }}" class="btn btn-flat btn-secondary ml-1"><i class="fa fa-eye"></i></a>
                                             <a href="{{ route('units.edit',$item) }}" class="btn btn-flat btn-primary ml-1"><i class="fa fa-edit"></i></a>
                                             <form action="{{route('units.destroy', $item)}}" method="post" onsubmit="return confirm('هل انت متاكد؟')">
                                                 @csrf

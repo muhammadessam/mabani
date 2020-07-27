@@ -64,7 +64,7 @@ class UnitController extends Controller
      */
     public function show(Unit $unit)
     {
-        //
+        return view('units.show', compact('unit'));
     }
 
     /**

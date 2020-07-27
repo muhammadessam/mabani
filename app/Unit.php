@@ -29,5 +29,6 @@ class Unit extends Model
     {
         return $this->hasMany(Contract::class, 'unit_id', 'id');
     }
+
 }
 
