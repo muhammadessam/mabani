@@ -121,7 +121,7 @@
                 <div
                     style="display: flex; justify-content: space-between; margin-top: auto; width: 90%;margin-bottom: 3%">
                     <a href="{{ route('password.request') }}">نسيت كلمة المرور</a>
-                    <button type="submit">دخول</button>
+                    <button style="color: white" type="submit">دخول</button>
                 </div>
             </form>
         </div>
