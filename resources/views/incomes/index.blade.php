@@ -17,21 +17,11 @@
                         </div>
 
                         <div class="form-group m-1">
-                            <label for="employee_id">الموظف</label>
-                            <select name="employee_id" id="employee_id" class="form-control">
-                                <option value="">الكل</option>
-                                @foreach (\App\Employee::all() as $item)
-                                    <option {{request()->get('employee_id') == $item['id'] ? 'selected' : ''}}
-                                            value="{{$item['id']}}">{{$item->user['name']}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="form-group m-1">
                             <label for="building_id">المبني رقم:</label>
                             <select name="building_id" id="building_id" class="form-control">
                                 <option value="">الكل</option>
                                 @foreach (\App\Building::all() as $item)
-                                    <option {{request()->get('unit_id') == $item['id'] ? 'selected' : ''}}
+                                    <option {{request()->get('building_id') == $item['id'] ? 'selected' : ''}}
                                             value="{{$item['id']}}">{{$item['id']}}</option>
                                 @endforeach
                             </select>

@@ -32,7 +32,7 @@
                         <select name="building_id" id="building_id" class="form-control">
                             <option value="">الكل</option>
                             @foreach (\App\Building::all() as $item)
-                            <option {{request()->get('unit_id') == $item['id'] ? 'selected' : ''}}
+                            <option {{request()->get('building_id') == $item['id'] ? 'selected' : ''}}
                                 value="{{$item['id']}}">{{$item['id']}}</option>
                             @endforeach
                         </select>

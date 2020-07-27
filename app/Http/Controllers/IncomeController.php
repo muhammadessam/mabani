@@ -22,10 +22,6 @@ class IncomeController extends Controller
             $data  = $data->where('date', '<=' , $request['end']);
         }
 
-        if($request['employee_id']){
-            $data  = $data->where('employee_id', $request['employee_id']);
-        }
-
         if($request['building_id']){
             $data  = $data->where('building_id', $request['building_id']);
         }
