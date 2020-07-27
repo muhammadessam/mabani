@@ -26,7 +26,7 @@
                     "sSortDescending": ": تفعيل لترتيب العمود تنازلياً"
                 }
             }, "info": false,
-            @if($print)
+            @if(isset($print)  && $print)
             dom: 'Bfrtip',
             lengthMenu: [[10, 25, 50, 100 - 1], [10, 25, 50, 100, "All"]],
             pageLength: 10,

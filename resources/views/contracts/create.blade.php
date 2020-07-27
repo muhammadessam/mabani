@@ -10,6 +10,8 @@
                             <a class="btn btn-flat btn-success" href="{{route('contracts.index')}}"><i class="fa fa-list"></i></a>
                         </div>
                     </div>
+
+                    @dd('sad')
                     <div class="card-body">
                         <form action="{{route('contracts.store')}}" method="post">
                             @csrf
