@@ -41,4 +41,5 @@
             font-family: "Times New Roman";
         }
     </style>
+    @yield('css')
 </head>

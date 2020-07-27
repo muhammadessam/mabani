@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 @include('layouts.head')
+
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
 

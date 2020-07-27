@@ -1,11 +1,11 @@
 @extends('layouts.layout')
-@section('content')
 
+@section('content')
     <div class="container">
         <div class="card">
             <div class="card-header">
                 <div class="row">
-                    <div class="col text-center m-5">
+                    <div class="col text-center mb-1">
                         <img style="width: 200px; height: 200px;" src="{{asset(\App\Setting::MainSettings()->logo)}}"
                              alt="">
                     </div>
@@ -16,7 +16,7 @@
                     </div>
                 </div>
                 @if ($income->unit_id)
-                    <div class="row mt-5">
+                    <div class="row">
                         <div class="col-3">
                             تم استلام مع الشكر من الفاضل:
                         </div>
@@ -26,13 +26,12 @@
                     </div>
                 @endif
             </div>
-            <div class="card-body mt-5">
+            <div class="card-body">
 
                 <div class="row">
                     <div class="col">
 
-                        <table class="table table-striped">
-
+                        <table class="table">
                             <tbody>
                             <tr>
                                 <td>نوع الدخل</td>
