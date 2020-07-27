@@ -7,7 +7,7 @@
                     <!-- small box -->
                     <div class="small-box bg-success">
                         <div class="inner">
-                            <h3>{{\App\Building::all()->count()}}</h3>
+                            <h3>{{\App\Income::all()->pluck('amount')->sum() - \App\Expense::all()->pluck('amount')->sum()}}</h3>
 
                             <p>الحساب</p>
                         </div>
