@@ -1,4 +1,4 @@
-@props(['id', 'print', 'cols', 'header', 'footer', 'orderCol', 'orderDir'])
+@props(['id', 'print', 'cols', 'header', 'footer', 'orderCol', 'orderDir', 'printLand'])
 <script>
     $(function () {
         $("#{{$id}}").DataTable({
@@ -33,6 +33,7 @@
             buttons: [
                 {
                     extend: 'print',
+                    orientation: 'landscape',
                     exportOptions: {
                         columns: {{$cols}},
                     },
@@ -48,6 +49,16 @@
                         $(win.document.body).find('h1').append(`{!! \App\Setting::MainSettings()->header !!}`);
                         $(win.document.body).find('table').after(`{!! \App\Setting::MainSettings()->footer !!}`);
                         $(win.document.body).find('table').addClass('mt-5 mb-5');
+                        @if(isset($printLand))
+                            var css = '@page { size: landscape; }',
+                                head = win.document.head || win.document.getElementsByTagName('head')[0],
+                                style = win.document.createElement('style');
+
+                            style.type = 'text/css';
+                            style.media = 'print';
+                            style.appendChild(win.document.createTextNode(css));
+                            head.appendChild(style);
+                        @endif
 
                     }
                 },

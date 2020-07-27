@@ -97,5 +97,5 @@
     </div>
 @endsection
 @section('javascript')
-    <x-datatable id="incomes" print="1" cols=[0,1,2,3,4,5,6,7] orderCol="3" orderDir="asc"></x-datatable>
+    <x-datatable id="incomes" print="1" cols=[0,1,2,3,4,5,6,7] orderCol="3" orderDir="asc" printLand="1"></x-datatable>
 @endsection
