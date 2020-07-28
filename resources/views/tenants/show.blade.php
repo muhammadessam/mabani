@@ -7,7 +7,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <a class="btn btn-flat btn-success" href="{{route('owners.index')}}"><i class="fa fa-list"></i></a>
+                            <a class="btn btn-flat btn-success" href="{{route('tenants.index')}}"><i class="fa fa-list"></i></a>
                         </div>
                         <div class="card-body">
                             <div class="row">
@@ -36,7 +36,6 @@
                     </div>
                 </div>
             </div>
-
 
         </div>
     </div>

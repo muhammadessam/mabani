@@ -11,7 +11,6 @@
                         </div>
                     </div>
 
-                    @dd('sad')
                     <div class="card-body">
                         <form action="{{route('contracts.store')}}" method="post">
                             @csrf
@@ -36,7 +35,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="number">رقم التعاقد</label>
+                                <label for="number">رقم العقد</label>
                                 <input class="form-control" type="text" name="number" id="number" value="{{old('number')}}">
                                 <x-error name="number"></x-error>
                             </div>

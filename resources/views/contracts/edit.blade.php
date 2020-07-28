@@ -35,7 +35,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="number">رقم التعاقد</label>
+                                <label for="number">رقم العقد</label>
                                 <input class="form-control" type="text" name="number" id="number" value="{{$contract['number']}}">
                                 <x-error name="number"></x-error>
                             </div>

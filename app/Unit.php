@@ -30,5 +30,10 @@ class Unit extends Model
         return $this->hasMany(Contract::class, 'unit_id', 'id');
     }
 
+    public function incomes()
+    {
+        return $this->hasMany(Income::class, 'unit_id', 'id');
+    }
+
 }
 

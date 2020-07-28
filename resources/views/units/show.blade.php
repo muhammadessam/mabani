@@ -68,7 +68,7 @@
                     <div class="card-header">
                         <h3 class="card-title">الدخولات</h3>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body" style="overflow: auto">
                         <table id="incomes" class="table table-striped">
                             <thead>
                             <tr>
@@ -83,7 +83,7 @@
                                 <th>اجراء</th>
                             </tr>
                             </thead>
-                            @foreach(\App\Income::all()->where('unit_id', $unit->id) as $item)
+                            @foreach($unit->incomes as $item)
                                 <tr>
                                     <td>{{$item->cat['name']}}</td>
                                     <td>{{$item->building['id']}}</td>
@@ -104,4 +104,7 @@
             </div>
         </div>
     </div>
+@endsection
+@section('javascript')
+    <x-datatable id="incomes" print="1" cols=[0,1,2,3,4,5,6,7] orderCol="3" orderDir="asc" printLand="1"></x-datatable>
 @endsection
