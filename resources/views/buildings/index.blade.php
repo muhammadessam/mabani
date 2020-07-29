@@ -36,7 +36,7 @@
                                         <td>{{$item['plot_number']}}</td>
                                         <td>
                                             @if($item['img'])
-                                                <img style="widows: 100px;height: 100px;" src="{{asset($item['img'])}}" alt="هناك خطا في تحميل ملفات المبني"
+                                                <img style="width: 100px;height: 100px;" src="{{asset($item['img'])}}" alt="هناك خطا في تحميل ملفات المبني"
                                                      srcset="">
                                             @endif
                                         </td>
