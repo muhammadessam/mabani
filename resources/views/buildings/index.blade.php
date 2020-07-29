@@ -40,11 +40,11 @@
                                                      srcset="">
                                             @endif
                                         </td>
-                                        <td>{{$item->incomes->pluck('amount')->sum()}}</td>
+                                        <td>{{$item->incomes ? $item->incomes->pluck('amount')->sum()}}</td>
                                         <td class="d-flex">
                                             <a class="btn btn-flat btn-secondary" href="{{route('buildings.show', $item)}}"><i class="fa fa-eye"></i></a>
                                             <a class="btn btn-flat btn-warning" href="{{route('buildings.edit', $item)}}"><i class="fa fa-edit"></i></a>
-                                            <form action="{{route('buildings.destroy', $item)}}" method="post" onsubmit="return confirm('هل انت متاكد؟')">
+                                            <form action="{{route('buildings.destroy', $item)}}" method="post" onsubmit="return confirm('هل انت متاكد ؟')">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-flat btn-danger"><i class="fa fa-trash"></i></button>

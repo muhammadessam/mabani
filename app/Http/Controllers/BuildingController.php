@@ -120,7 +120,7 @@ class BuildingController extends Controller
     {
         $request->validate([
             'owner_id' => 'required',
-            'percentage' => 'required',
+            'percentage' => 'required|min:0|max:100',
         ]);
         $building->owners()->attach([
             $request['owner_id'] => ['percentage' => $request['percentage']]

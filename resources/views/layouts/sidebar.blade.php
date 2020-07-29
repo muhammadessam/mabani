@@ -186,12 +186,13 @@
 
                                     <li class="nav-item">
                                         <a href="{{ route('income.income.index')}}"
-                                            class="nav-link {{request()->routeIs('income.income.*') ? 'active' : ''}}">
+                                            class="nav-link {{request()->routeIs('income.income.*') && request()->route() != "/admin/income/income?type=1" ? 'active' : ''}}">
                                             <i class="fa fa-circle-o nav-icon"></i>
                                             <p>الدخل</p>
                                             <span class="badge badge-danger float-left"></span>
                                         </a>
                                     </li>
+
                                     <li class="nav-item">
                                         <a href="{{route('income.category.index')}}"
                                            class="nav-link {{request()->routeIs('income.category.*') ? 'active' : ''}}">
