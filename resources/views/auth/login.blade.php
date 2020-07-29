@@ -82,6 +82,11 @@
             height: 450px;
 
         }
+        @media only screen and (max-width: 2000px) {
+            #main {
+                width: 25%;
+            }
+        }
         @media only screen and (max-width: 1400px) {
             #main {
                 width: 35%;
