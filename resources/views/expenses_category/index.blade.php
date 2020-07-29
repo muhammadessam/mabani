@@ -31,7 +31,7 @@
                                     <tr>
                                         <td>{{$item['name']}}</td>
                                         <td class="d-flex">
-                                            @if($item['id']!=1 && $item['id']!=2)
+                                            @if($item['name']!='مباني' && $item['name']!='موظفون' && $item['name']!='ارباح')
                                                 <a class="btn btn-flat btn-warning ml-1" href="{{route('expenses.category.edit', $item)}}"><i class="fa fa-edit"></i></a>
                                                 <form action="{{route('expenses.category.destroy',$item)}}" method="post" onsubmit="return confirm('هل انت متاكد ؟')">
                                                     @csrf

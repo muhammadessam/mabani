@@ -19,6 +19,7 @@ class CreateExpensesTable extends Migration
             $table->unsignedBigInteger('building_id')->nullable()->default(null);
             $table->unsignedBigInteger('unit_id')->nullable()->default(null);
             $table->unsignedBigInteger('employee_id')->nullable()->default(null);
+            $table->unsignedBigInteger('owner_id')->nullable()->default(null);
             $table->date('date');
             $table->double('amount');
             $table->double('paid');
@@ -28,6 +29,7 @@ class CreateExpensesTable extends Migration
             $table->foreign('building_id')->references('id')->on('buildings')->onDelete('cascade');
             $table->foreign('unit_id')->references('id')->on('units')->onDelete('cascade');
             $table->foreign('employee_id')->references('id')->on('employees')->onDelete('cascade');
+            $table->foreign('owner_id')->references('id')->on('owners')->onDelete('cascade');
             $table->timestamps();
         });
     }

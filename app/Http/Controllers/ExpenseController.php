@@ -15,23 +15,26 @@ class ExpenseController extends Controller
     public function index(Request $request)
     {
         $data = Expense::all();
-        if($request['start']){
-            $data  = $data->where('date', '>=' , $request['start']);
+        if ($request['start']) {
+            $data = $data->where('date', '>=', $request['start']);
         }
-        if($request['end']){
-            $data  = $data->where('date', '<=' , $request['end']);
-        }
-
-        if($request['employee_id']){
-            $data  = $data->where('employee_id', $request['employee_id']);
+        if ($request['end']) {
+            $data = $data->where('date', '<=', $request['end']);
         }
 
-        if($request['building_id']){
-            $data  = $data->where('building_id', $request['building_id']);
+        if ($request['employee_id']) {
+            $data = $data->where('employee_id', $request['employee_id']);
         }
 
-        if($request['unit_id']){
-            $data  = $data->where('unit_id', $request['unit_id']);
+        if ($request['building_id']) {
+            $data = $data->where('building_id', $request['building_id']);
+        }
+
+        if ($request['unit_id']) {
+            $data = $data->where('unit_id', $request['unit_id']);
+        }
+        if ($request['owner_id']) {
+            $data = $data->where('owner_id', $request['owner_id']);
         }
 
         return view('expenses.index', compact('data'));
@@ -57,7 +60,6 @@ class ExpenseController extends Controller
     {
         $request->validate([
             'cat_id' => 'required|exists:expenses_categories,id',
-
             'date' => 'required|date',
             'amount' => 'required',
             'paid' => 'required',
@@ -117,9 +119,10 @@ class ExpenseController extends Controller
             'amount' => 'القيمة',
             'paid' => 'الدفع',
         ]);
-        $request['building_id'] = $request['building_id'] ??  null;
+        $request['building_id'] = $request['building_id'] ?? null;
         $request['unit_id'] = $request['unit_id'] ?? null;
         $request['employee_id'] = $request['employee_id'] ?? null;
+        $request['owner_id'] = $request['owner_id'] ?? null;
         $request['balance'] = $request['amount'] - $request['paid'];
         $expense->update($request->all());
         $this->actionDone();

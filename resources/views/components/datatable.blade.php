@@ -63,7 +63,10 @@
 
                     }
                 },
-                'pageLength'
+                {
+                    extend: 'pageLength',
+                    text: 'عدد النتائج'
+                }
             ],
             @endif
 

@@ -20,10 +20,13 @@ class CreateExpensesCategoriesTable extends Migration
             $table->timestamps();
         });
         DB::table('expenses_categories')->insert([
-            'name'=>'المباني'
+            'name'=>'مباني'
         ]);
         DB::table('expenses_categories')->insert([
-            'name'=>'الموظفون'
+            'name'=>'موظفون'
+        ]);
+        DB::table('expenses_categories')->insert([
+            'name'=>'ارباح'
         ]);
     }
 

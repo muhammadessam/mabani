@@ -27,6 +27,19 @@
                             @endforeach
                         </select>
                     </div>
+
+                    <div class="form-group m-1">
+                        <label for="employee_id">المالك</label>
+                        <select name="owner_id" id="owner_id" class="form-control">
+                            <option value="">الكل</option>
+                            @foreach (\App\Owner::all() as $item)
+                                <option {{request()->get('owner_id') == $item['id'] ? 'selected' : ''}}
+                                        value="{{$item['id']}}">{{$item->user['name']}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
+
                     <div class="form-group m-1">
                         <label for="building_id">المبني رقم:</label>
                         <select name="building_id" id="building_id" class="form-control">
@@ -74,6 +87,7 @@
                                     <th>المبني</th>
                                     <th>الوحدة</th>
                                     <th>الموظف</th>
+                                    <th>المالك</th>
                                     <th>التاريخ</th>
                                     <th>القيمة</th>
                                     <th>مدفوع</th>
@@ -88,6 +102,7 @@
                                 <td>{{$item->building['id']}}</td>
                                 <td>{{$item->unit['name']}}</td>
                                 <td>{{$item->employee ? $item->employee->user['name']  :''}}</td>
+                                <td>{{$item->owner ? $item->owner->user['name']  :''}}</td>
                                 <td>{{$item['date']}}</td>
                                 <td>{{$item['amount']}}</td>
                                 <td>{{$item['paid']}}</td>

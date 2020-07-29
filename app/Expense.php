@@ -59,7 +59,13 @@ class Expense extends Model
         return $this->belongsTo(Unit::class, 'unit_id', 'id');
     }
 
-    public function employee(){
+    public function employee()
+    {
         return $this->belongsTo(Employee::class, 'employee_id', 'id');
+    }
+
+    public function owner()
+    {
+        return $this->belongsTo(Owner::class, 'owner_id', 'id');
     }
 }

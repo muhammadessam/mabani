@@ -10,7 +10,7 @@
                             <h3 class="card-title">اضافة جديد</h3>
                             <div class="card-tools">
                                 <a class="btn btn-flat btn-success" href="{{route('expenses.expense.index')}}"><i
-                                            class="fa fa-list"></i></a>
+                                        class="fa fa-list"></i></a>
                             </div>
                         </div>
 
@@ -72,6 +72,21 @@
                                     </div>
                                 </div>
 
+                                <div class="row" id="ifOwnerContainer">
+                                    <div class="col-12" id="ifOwner">
+                                        <div class="form-group">
+                                            <label for="unit_id">المالك</label>
+                                            <select name="owner_id" id="owner_id" class="form-control">
+                                                @foreach(\App\Owner::all() as $item)
+                                                    <option {{$expense['owner_id'] == $item['id'] ? 'selected':''}}
+                                                            value="{{$item['id']}}">{{$item->user['name']}}</option>
+                                                @endforeach
+                                            </select>
+                                            <x-error name="owner_id"></x-error>
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <div class="form-group">
                                     <label for="date">التاريخ</label>
                                     <input class="form-control" type="date" name="date" id="date"
@@ -115,17 +130,26 @@
     <script>
         let checkMabani = $('#ifMabani');
         let checkEmp = $('#ifEmp');
+        let checkOwner = $('#ifOwner');
 
         $(document).ready(function () {
             if ($('#cat_id').val() == 1) {
                 checkEmp.remove();
+                checkOwner.remove();
                 $('#ifMabaniContainer').append(checkMabani);
             } else if ($('#cat_id').val() == 2) {
                 checkMabani.remove();
+                checkOwner.remove();
                 $('#ifEmpContainer').append(checkEmp);
-            } else {
+            } else if ($('#cat_id').val() == 3) {
                 checkMabani.remove();
                 checkEmp.remove();
+                $('#ifOwnerContainer').append(checkOwner);
+            } else {
+
+                checkMabani.remove();
+                checkEmp.remove();
+                checkOwner.remove();
             }
         });
 
@@ -133,13 +157,20 @@
         function checkIfManbani() {
             if ($('#cat_id').val() == 1) {
                 checkEmp.remove();
+                checkOwner.remove();
                 $('#ifMabaniContainer').append(checkMabani);
             } else if ($('#cat_id').val() == 2) {
                 checkMabani.remove();
+                checkOwner.remove();
                 $('#ifEmpContainer').append(checkEmp)
+            } else if ($('#cat_id').val() == 3) {
+                checkMabani.remove();
+                checkEmp.remove();
+                $('#ifOwnerContainer').append(checkOwner)
             } else {
                 checkEmp.remove();
                 checkMabani.remove();
+                checkOwner.remove();
             }
         }
     </script>
