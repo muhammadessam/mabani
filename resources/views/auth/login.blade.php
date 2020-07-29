@@ -77,27 +77,40 @@
         }
 
         #main {
-            width: 25%;
+            width: 33%;
             background-color: rgb(127, 81, 63, .73);
             height: 450px;
 
         }
-
-        @media only screen and (max-width: 800px) {
+        @media only screen and (max-width: 1400px) {
             #main {
-                width: 100%;
+                width: 35%;
             }
         }
+
         @media only screen and (max-width: 1000px) {
             #main {
                 width: 50%;
             }
         }
-        @media only screen and (max-width: 1400px) {
+
+        @media only screen and (max-width: 800px) {
             #main {
                 width: 70%;
             }
         }
+        @media only screen and (max-width: 600px) {
+            #main {
+                width: 85%;
+            }
+        }
+        @media only screen and (max-width: 400px) {
+            #main {
+                width: 100%;
+            }
+        }
+
+
     </style>
 </head>
 
