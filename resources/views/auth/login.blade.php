@@ -77,7 +77,7 @@
         }
 
         #main {
-            width: 30%;
+            width: 25%;
             background-color: rgb(127, 81, 63, .73);
             height: 450px;
 
