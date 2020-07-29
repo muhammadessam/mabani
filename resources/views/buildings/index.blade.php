@@ -40,7 +40,7 @@
                                                      srcset="">
                                             @endif
                                         </td>
-                                        <td>{{$item->incomes ? $item->incomes->pluck('amount')->sum()}}</td>
+                                        <td>{{$item->incomes ? $item->incomes->pluck('amount')->sum() : ''}}</td>
                                         <td class="d-flex">
                                             <a class="btn btn-flat btn-secondary" href="{{route('buildings.show', $item)}}"><i class="fa fa-eye"></i></a>
                                             <a class="btn btn-flat btn-warning" href="{{route('buildings.edit', $item)}}"><i class="fa fa-edit"></i></a>
