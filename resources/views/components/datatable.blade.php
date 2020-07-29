@@ -33,6 +33,7 @@
             buttons: [
                 {
                     extend: 'print',
+                    text:'طباعة',
                     orientation: 'landscape',
                     exportOptions: {
                         columns: {{$cols}},
