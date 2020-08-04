@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Building;
 use App\Owner;
 use App\User;
 use Illuminate\Http\Request;
@@ -48,7 +49,7 @@ class OwnerController extends Controller
             'password' => 'كلمة المرور',
         ]);
         $request['password'] = Hash::make($request['password']);
-        $request['type']='User';
+        $request['type'] = 'User';
         $user = User::create($request->all());
         $user->owner()->create();
         $this->actionDone();
@@ -110,5 +111,19 @@ class OwnerController extends Controller
         $owner->user()->delete();
         $this->actionDone();
         return redirect()->back();
+    }
+
+    public function shareGet(Request $request)
+    {
+
+        if ($request['amount'] && $request['building_id']) {
+            $building = Building::find($request['building_id']);
+            foreach ($building->owners as $owner) {
+                $ownersShare[$owner['id']][]= $owner->pivot->percentage;
+                $ownersShare[$owner['id']][]= ($owner->pivot->percentage/100) * $request['amount'];
+            }
+            return view('owners.share', compact('ownersShare'));
+        }
+        return view('owners.share');
     }
 }

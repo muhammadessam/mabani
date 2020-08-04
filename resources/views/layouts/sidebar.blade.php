@@ -236,6 +236,15 @@
                     </li>
 
                     <li class="nav-item">
+                        <a href="{{route('get.owner.share')}}"
+                           class="nav-link {{request()->routeIs('get.owner.share') ? 'active' : ''}}">
+                            <i class="nav-icon fa fa-share"></i>
+                            <p>التقسيمات</p>
+                        </a>
+                    </li>
+
+
+                    <li class="nav-item">
                         <a href="{{route('documents.index')}}"
                             class="nav-link {{request()->routeIs('documents.*') ? 'active' : ''}}">
                             <i class="nav-icon fa fa-file"></i>

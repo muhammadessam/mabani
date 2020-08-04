@@ -6,9 +6,7 @@
 <div class="wrapper">
 
     @include('layouts.nav')
-
     @include('layouts.sidebar')
-
 
     <div class="content-wrapper" id="app">
         <div class="content-header">
@@ -28,13 +26,13 @@
 
     </div>
     <footer class="main-footer no-print">
-        <strong>CopyLeft © {{\Carbon\Carbon::now()->format('Y')}} <a href="https://www.defaultpath.com">المسار الافتراضي</a>.</strong>
+        <strong>تطوير <a target="_blank" href="https://www.defaultpath.com">المسار الافتراضي {{\Carbon\Carbon::now()->format('Y')}}</a>.</strong>
     </footer>
-
 </div>
 
 @include('layouts.footer')
 @yield('javascript')
 @include('sweetalert::alert')
+
 </body>
 </html>

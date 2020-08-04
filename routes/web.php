@@ -58,4 +58,7 @@ Route::middleware('auth')->prefix('admin')->group(function () {
 
     //documents
     Route::resource('documents', 'DocumentController');
+
+    // owner share
+    Route::get('share', 'OwnerController@shareGet')->name('get.owner.share');
 });
