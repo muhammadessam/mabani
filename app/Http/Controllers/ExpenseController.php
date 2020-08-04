@@ -36,7 +36,9 @@ class ExpenseController extends Controller
         if ($request['owner_id']) {
             $data = $data->where('owner_id', $request['owner_id']);
         }
-
+        if ($request['expenses_cat']) {
+            $data = $data->where('cat_id', $request['expenses_cat']);
+        }
         return view('expenses.index', compact('data'));
     }
 
